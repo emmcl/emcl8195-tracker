@@ -1,0 +1,19 @@
+{
+  "name": "emcl8195-tracker",
+  "version": "1.0.0",
+  "description": "emcl8195 a3 tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmcl/emcl8195-tracker.git"
+  },
+  "author": "Emma McLuckie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmcl/emcl8195-tracker/issues"
+  },
+  "homepage": "https://github.com/emmcl/emcl8195-tracker#readme"
+}

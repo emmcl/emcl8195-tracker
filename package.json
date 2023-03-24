@@ -4,7 +4,8 @@
   "description": "emcl8195 a3 tracker",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":  "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/emmcl/emcl8195-tracker/issues"
   },
-  "homepage": "https://github.com/emmcl/emcl8195-tracker#readme"
+  "homepage": "https://github.com/emmcl/emcl8195-tracker#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+  
 }
+
+
+
+

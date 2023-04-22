@@ -2,8 +2,9 @@
   "name": "emcl8195-tracker",
   "version": "1.0.0",
   "description": "emcl8195 a3 tracker",
-  "main": "index.js",
   "scripts": {
+    "prestart": "parcel build ./public/index.html",
+    "dev": "parcel serve ./public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -18,9 +19,12 @@
   },
   "homepage": "https://github.com/emmcl/emcl8195-tracker#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "sass": "^1.62.0"
   },
   "devDependencies": {
-    "eslint": "^8.36.0"
+    "@parcel/transformer-sass": "^2.8.3",
+    "eslint": "^8.36.0",
+    "parcel": "^2.8.3"
   }
 }

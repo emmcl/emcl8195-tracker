@@ -1,31 +1,37 @@
-body{
+body {
     background-color: #ffcfdd;
 }
 
 
 h1{
     font-family: 'Passion One', cursive;
-    font-size: 200px;
     color: #ffffff;
     text-align: center;
 }
 
 h2{
     font-family: 'Mulish', sans-serif;
-    
+
 }
 
 p{
     font-family: 'Cairo', sans-serif;
 }
 
-.toast{
-    font-family: 'Passion One ';
+/* hero image */
+.hero-image-container {
+    max-width: 1512px;
+    height: auto;
+    position: relative;
 }
-
-
-
-
-
-
-
+.hero-image{
+    width: 100%;
+    max-height: 600px;
+}
+.hero-image-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}

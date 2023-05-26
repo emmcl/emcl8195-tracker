@@ -39,7 +39,7 @@
 
 <!-- form -->
     <section class="formContainer">
-        <form>
+        <form class="addBook">
             <label for="bookCover">Cover:</label>
             <input type="file" id="bookCover" name="bookCover"><br>
 
@@ -49,7 +49,7 @@
             <label for="bookAuthor">Author:</label>
             <input type="text" id="bookAuthor" name="bookAuthor"><br>
             
-            <!-- although there are a significant number of options that could be provided for this drop down, I have chosen 10 popular fiction genres  -->
+            <!-- Although there are a significant number of options that could be provided for this drop down, I have chosen 10 popular fiction genres  -->
             <label for="bookGenre">Genre:</label> 
             <select id="bookGenre" name="bookGenre">
                 <option selected disabled>Select a Genre</option>
@@ -77,23 +77,23 @@
             <input type="number" id="bookLength" name="bookLength" min="1"><br> 
 
             <label for="bookRating">Rating:</label>
-                <input type="radio" id="zeroStars" name="zeroStars" value="0">
+                <input type="radio" id="zeroStars" name="rating" value="0">
                 <label for="zeroStars">0</label>
-                <input type="radio" id="oneStar" name="oneStar" value="1">
+                <input type="radio" id="oneStar" name="rating" value="1">
                 <label for="oneStar">1</label>
-                <input type="radio" id="twoStars" name="twoStars" value="2">
+                <input type="radio" id="twoStars" name="rating" value="2">
                 <label for="twoStars">2</label>
-                <input type="radio" id="threeStars" name="threeStars" value="3">
+                <input type="radio" id="threeStars" name="rating" value="3">
                 <label for="threeStars">3</label>
-                <input type="radio" id="fourStars" name="fourStars" value="4">
+                <input type="radio" id="fourStars" name="rating" value="4">
                 <label for="html">4</label>
-                <input type="radio" id="fiveStars" name="fiveStars" value="5">
+                <input type="radio" id="fiveStars" name="rating" value="5">
                 <label for="html">5</label><br>
             
             <label for="bookReview">Review:</label>
             <textarea id="bookReview" name="bookReview" rows="4" cols="25"></textarea><br>
 
-
+            
         </form>
         
     </section>

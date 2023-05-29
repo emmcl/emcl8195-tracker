@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&family=Mulish:ital@0;1&family=Passion+One:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />    
     <title>Book Tracker</title>
 </head>
 <body>
@@ -37,75 +40,96 @@
     
     </div>
 
-<!-- form -->
+<!-- form to add books to the tracker -->
     <section class="formContainer">
+
         <form class="addBook">
-            <label for="bookCover">Cover:</label>
-            <input type="file" id="bookCover" name="bookCover"><br>
 
-            <label for="bookTitle">Title:</label>
-            <input type="text" id="bookTitle" name="bookTitle"><br>
+            <div class="form-row">
+                <label for="bookCover">Cover:</label>
+                <input type="file" id="bookCover" name="bookCover" accept="image/x-png,image/gif,image/jpeg"><br>
+            </div>
 
-            <label for="bookAuthor">Author:</label>
-            <input type="text" id="bookAuthor" name="bookAuthor"><br>
-            
-            <!-- Although there are a significant number of options that could be provided for this drop down, I have chosen 10 popular fiction genres  -->
-            <label for="bookGenre">Genre:</label> 
-            <select id="bookGenre" name="bookGenre">
-                <option selected disabled>Select a Genre</option>
-                <option value="classics">Classics</option>
-                <option value="crimeAndMystery">Crime & Mystery</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="generalFiction">General Fiction</option>
-                <option value="graphicNovelsAndManga">Graphic Novels & Manga</option>
-                <option value="historical">Historical</option>
-                <option value="horror">Horror</option>
-                <option value="romance">Romance</option>
-                <option value="scifi">SciFi</option>
-                <option value="youngAdult">Young Adult</option>
-            </select><br>
+             <div class="form-row">
+                <label for="bookTitle">Title:</label>
+                <input type="text" id="bookTitle" name="bookTitle" required="true"><br>
+            </div>
 
-            <label for="bookFormat">Format:</label> 
-            <select id="bookFormat" name="bookFormat">
-                <option selected disabled>Select a Format</option>
-                <option value="physical">Physical</option>
-                <option value="digital">Digital</option>
-                <option value="audio">Audio</option>
-            </select><br>
+            <div class="form-row">
+                <label for="bookAuthor">Author:</label>
+                <input type="text" id="bookAuthor" name="bookAuthor" required="true"><br>
+            </div>
 
-            <label for="bookLength">Length:</label> 
-            <input type="number" id="bookLength" name="bookLength" min="1"><br> 
+            <!-- Although there are a significant number of options that could be provided for this drop down, 
+                I have chosen 10 popular fiction genres most shown on book purchasing websites   -->
 
-            <label for="bookRating">Rating:</label>
-                <input type="radio" id="zeroStars" name="rating" value="0">
-                <label for="zeroStars">0</label>
-                <input type="radio" id="oneStar" name="rating" value="1">
-                <label for="oneStar">1</label>
-                <input type="radio" id="twoStars" name="rating" value="2">
-                <label for="twoStars">2</label>
-                <input type="radio" id="threeStars" name="rating" value="3">
-                <label for="threeStars">3</label>
-                <input type="radio" id="fourStars" name="rating" value="4">
-                <label for="html">4</label>
-                <input type="radio" id="fiveStars" name="rating" value="5">
-                <label for="html">5</label><br>
-            
-            <label for="bookReview">Review:</label>
-            <textarea id="bookReview" name="bookReview" rows="4" cols="25"></textarea><br>
+            <div class="form-row">
+                <label for="bookGenre">Genre:</label> 
+                <select id="bookGenre" name="bookGenre" required="true">
+                    <option selected disabled>Select a Genre</option>
+                    <option value="classics">Classics</option>
+                    <option value="crimeAndMystery">Crime & Mystery</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="generalFiction">General Fiction</option>
+                    <option value="graphicNovels">Graphic Novels</option>
+                    <option value="historical">Historical</option>
+                    <option value="horror">Horror</option>
+                    <option value="romance">Romance</option>
+                    <option value="scifi">SciFi</option>
+                    <option value="youngAdult">Young Adult</option>
+                </select><br>
+            </div>
 
-            
+            <div class="form-row">
+                <label for="bookFormat">Format:</label> 
+                <select id="bookFormat" name="bookFormat" required="true">
+                    <option selected disabled>Select a Format</option>
+                    <option value="physical">Physical</option>
+                    <option value="digital">Digital</option>
+                    <option value="audio">Audio</option>
+                </select><br>
+            </div>
+
+            <div class="form-row">
+                <label for="bookLength">Length:</label> 
+                <input type="number" id="bookLength" name="bookLength" min="1" required="true"><br> 
+            </div>
+
+            <div class="form-row">
+                <label for="bookRating">Rating:</label>
+                    <input type="radio" id="zeroStars" name="rating" value="0">
+                    <label for="zeroStars">0</label>
+                    <input type="radio" id="oneStar" name="rating" value="1">
+                    <label for="oneStar">1</label>
+                    <input type="radio" id="twoStars" name="rating" value="2">
+                    <label for="twoStars">2</label>
+                    <input type="radio" id="threeStars" name="rating" value="3">
+                    <label for="threeStars">3</label>
+                    <input type="radio" id="fourStars" name="rating" value="4">
+                    <label for="html">4</label>
+                    <input type="radio" id="fiveStars" name="rating" value="5">
+                    <label for="html">5</label><br>
+            </div>
+            <div class="form-row">
+                <label for="bookReview">Review:</label>
+                <textarea id="bookReview" name="bookReview" placeholder="Write a review (optional)"></textarea><br>
+            </div>
+
+            <div class="form-row">
+                <label for="bookTags">Tags</label>
+                <input type="text" id="bookTags" name="bookTags"><br>
+            </div>
+
+            <div class="form-row">
+                <input type="submit" id="submitButton" value="SHELVE">
+            </div>
+
         </form>
         
     </section>
 
 
-
-
-
-
-
-
-
     <script src="script.js"></script>
+
 </body>
 </html>

@@ -11,7 +11,8 @@ h1{
 h2{
     font-family: 'Cairo', sans-serif;
     color: #000000;
-
+    text-align: center;
+    margin: auto;
 }
 
 p{
@@ -52,7 +53,7 @@ p{
     box-shadow: 10px 5px 5px #FFCFDD, 0 17px 50px 0 #FFCFDD;
   }
 
-.formContainer{
+.form-container{
     background-color:#D6748F;
     border: 1px solid #000000;
     padding: 50px;
@@ -112,6 +113,18 @@ textarea{
     flex-grow: 1;
 }
 
+.form-row .tagify__tag{
+    --tag-bg: #D6748F;
+    --tag-hover: #A62848;
+    --tag-text-color: #FFFFFF;
+    --tags-border-color: #A62848;
+    --tag-border-radius: 25px;
+    --tag-text-color--edit: #000000;
+    --tag-remove-bg: var(--tag-hover);
+    --tag-inset-shadow-size: 1.35em;
+    --tag-remove-btn-bg--hover: #FFFFFF;
+    }
+    
 
 
 

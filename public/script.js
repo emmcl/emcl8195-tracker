@@ -1,7 +1,7 @@
 //This is for the tags input, we need to initialise the tags input as a Tagify object
-// const tagsInput = document.getElementById("tags");
-// const tagify = new Tagify(tagsInput);
-// const tagsArray = tagify.value.map((tag) => tag.value); // Extract the tag values
+const tagsInput = document.getElementById("bookTags");
+const tagify = new Tagify(tagsInput);
+
 
 // Setting up variables for our HTML elements using DOM selection
 const form = document.getElementById("addBookForm");
@@ -10,6 +10,7 @@ const booklist = document.getElementById("bookList");
 // Handle form submission, using input values to add new book
 form.addEventListener("submit", function (event) {
     event.preventDefault();
+    const tagsArray = tagify.value.map((tag) => tag.value); // Extract the tag values
     addBook(
         form.elements.bookCover.value,
         form.elements.bookTitle.value,
@@ -19,9 +20,9 @@ form.addEventListener("submit", function (event) {
         form.elements.bookLength.value,
         form.elements.bookRating.value,
         form.elements.bookReview.value,
-        form.elements.bookTags.value,
-    )
-})
+        tagsArray
+    );
+});
 
 // General function for fetching books from localStorage and rendering to screen
 function displayBooks() {

@@ -157,17 +157,17 @@ textarea.form-input {
   border-radius: 10px;
   font-family: "Cairo";
   color: white;
+  cursor: pointer;
 }
 
 .btn[disabled] {
   opacity: .5;
-  /* pointer-events: none; */
+  pointer-events: none;
 }
 
 .btn:hover {
   background: #FFCFDD;
-  color: #000000;
-  border: solid 1px #A62848; 
+  color: #000000; 
   transition: ease-in-out .3s all;
 }
 
@@ -215,7 +215,6 @@ textarea.form-input {
 
 .tab-status span.active {
   background-color: #A62848;
-
 }
 
 .hidden {
@@ -230,7 +229,7 @@ textarea.form-input {
 
 
 
-/* book opening animation - https://codepen.io/valerite-dev/pen/XjOeeK */
+/* book opening animation - from https://codepen.io/valerite-dev/pen/XjOeeK */
 
 .book {
     top: 0;

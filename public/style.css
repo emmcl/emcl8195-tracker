@@ -1,11 +1,11 @@
 body {
-    background-color: #ffcfdd;
+    background-color: #FFCFDD;
 }
 
 h1{
     font-family: 'Passion One', cursive;
     font-size: 160px;
-    color: #ffffff;
+    color: #FFFFFF;
 }
 
 h2{
@@ -41,7 +41,7 @@ p{
 
 .add{
     background-color: #A62848;
-    color:#ffcfdd;
+    color:#FFCFDD;
     font-family: "Cairo";
     font-size: 30px;
     padding: 5px 20px;
@@ -73,9 +73,10 @@ p{
     color: #000000;
     border-color: #FFCFDD;
     border-radius: 5px;
+    background-color: #FFFFFF;
 }
 
-textarea{
+.form-row > textarea{
     border-radius: 5px;
     width: 100%;
     height: 150px;
@@ -83,23 +84,23 @@ textarea{
     margin: 10px;
     box-sizing: border-box;
     border: 2px solid #A62848;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     font-family: "Mulish";
-    font-size: 14px;
+    font-size: 12pt;
     resize: none;
 }
 
 .form-row {
     display: flex;
     justify-content: flex-end;
-    padding: 0.5em;
+    padding: 1em;
 }
 
 .form-row > label {
     width: 100px;
     font-family: "Cairo";
     font-size: 15pt;
-    color: #ffffff;
+    color: #FFFFFF;
 }
 
 .form-row > input,
@@ -108,23 +109,120 @@ textarea{
     flex-grow: 1;
 }
 
+input[type="date"] {
+    font-family: "Mulish";
+}
+
 .tagify {
     padding: 0.5em;
     flex-grow: 1;
 }
 
+/* Utilising the Canvas instructions and additional instructions from https://yaireo.github.io/tagify/ */
 .form-row .tagify__tag{
-    --tag-bg: #D6748F;
+    font-family: "Mulish";
+    font-size: 12pt;
+    --tagify-dd-color-primary: #A62848;
+    --tag-bg: #FFCFDD;
     --tag-hover: #A62848;
-    --tag-text-color: #FFFFFF;
-    --tags-border-color: #A62848;
-    --tag-border-radius: 25px;
+    --tag-text-color: #000000;
+    --tags-border-color: #FFFFFF;
+    --tags-focus-border-colour: #A62848; 
+    --tags-hover-border-color: #A62848;
+    --tag-border-radius: 5px;
     --tag-text-color--edit: #000000;
     --tag-remove-bg: var(--tag-hover);
     --tag-inset-shadow-size: 1.35em;
-    --tag-remove-btn-bg--hover: #FFFFFF;
+    --tag-remove-btn-bg--hover: #FFFFFF50;
+    border: 1px solid var(--tags-border-color);
     }
     
+
+
+/* CSS from Multi Step Form page from Canvas */
+
+.btn:focus-within,
+.form-input:focus-within {
+  box-shadow: #f8fafc 0px 0px 0px 2px, #c7d2fe 0px 0px 0px 6px, #0000 0px 1px 2px 0px;
+}
+
+textarea.form-input {
+  min-height: 150px;
+}
+
+.btn {
+  background: #A62848;
+  padding: 0.5rem;
+  border: solid 1px #000000;
+  border-radius: 10px;
+  font-family: "Cairo";
+  color: white;
+}
+
+.btn[disabled] {
+  opacity: .5;
+  /* pointer-events: none; */
+}
+
+.btn:hover {
+  background: #FFCFDD;
+  color: #000000;
+  border: solid 1px #A62848; 
+  transition: ease-in-out .3s all;
+}
+
+.btn-submit {
+  background-color: #A62848;
+}
+
+.btn-submit:hover {
+  background-color: #FFCFDD;
+}
+
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.pagination .btn {
+  width: 100%;
+  text-align: center;
+  margin: 0 6px;
+}
+
+.tab-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.tab-status span {
+  appearance: none;
+  background: #A62848(--status-btn-bg);
+  border: solid 1px #FFCFDD;
+  font-family: "Cairo";
+  color: #FFFFFF;
+  font-size: 12pt;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin-right: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-status span.active {
+  background-color: #A62848;
+
+}
+
+.hidden {
+  display: none;
+}
+
+
 
 
 

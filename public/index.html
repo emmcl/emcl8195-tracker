@@ -43,100 +43,126 @@
 <!-- form to add books to the tracker -->
     <section class="form-container">
 
-        <form class="add-book-form">
+        <!-- nav section to tell the user where they are up to -->
+        <nav class="tab-status">
+            <span class="tab active">1</span>
+            <span class="tab">2</span>
+            <span class="tab">3</span>
+        </nav>
+        
+        <form class="add-book-form" action="#">
+            <h2 class="pop-up-heading">GENERAL</h2>
 
-            <h2 class="pop-up-heading">GENERAL INFORMATION</h2>
+            <div role=""tab-list">
 
-            <div class="form-row">
-                <label for="bookCover">Cover:</label>
-                <input type="file" id="bookCover" name="bookCover" accept="image/x-png,image/gif,image/jpeg"><br>
+                <section role="tab-panel" id="general" class="tab-panel">
+
+                    <div class="form-row">
+                        <label for="bookCover">Cover:</label>
+                        <input type="file" id="bookCover" name="bookCover" accept="image/x-png,image/gif,image/jpeg"><br>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="bookTitle">Title:</label>
+                        <input type="text" id="bookTitle" name="bookTitle" placeholder="eg. The Hobbit" required="true"><br>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="bookAuthor">Author:</label>
+                        <input type="text" id="bookAuthor" name="bookAuthor" placeholder="eg. JRR Tolkien" required="true"><br>
+                    </div>
+                </section>
+            
+
+                <section role="tab-panel" id="specifics" class="tab-panel hidden">
+
+                    <!-- Although there are a significant number of options that could be provided for this drop down, 
+                        I have chosen 10 popular fiction genres most shown on book purchasing websites   -->   
+
+                    <div class="form-row">
+                        <label for="bookGenre">Genre:</label> 
+                        <select id="bookGenre" name="bookGenre" required="true">
+                            <option selected disabled>Select a Genre</option>
+                            <option value="classics">Classics</option>
+                            <option value="crimeAndMystery">Crime & Mystery</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="generalFiction">General Fiction</option>
+                            <option value="graphicNovels">Graphic Novels</option>
+                            <option value="historical">Historical</option>
+                            <option value="horror">Horror</option>
+                            <option value="romance">Romance</option>
+                            <option value="scifi">SciFi</option>
+                            <option value="youngAdult">Young Adult</option>
+                        </select><br>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="bookFormat">Format:</label> 
+                        <select id="bookFormat" name="bookFormat" required="true">
+                            <option selected disabled>Select a Format</option>
+                            <option value="physical">Physical</option>
+                            <option value="digital">Digital</option>
+                            <option value="audio">Audio</option>
+                        </select><br>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="bookLength">Length:</label> 
+                        <input type="number" id="bookLength" name="bookLength"placeholder="eg. 310" min="1" required="true"><br> 
+                    </div>
+
+                    <div class="form-row">
+                        <label for="bookStartDate">Start Date:</label>
+                        <input type="date" id="bookStartDate" name="bookStartDate" required="true"
+                            min="2023-01-01" max="2023-12-31"><br>
+                    </div>
+                </section>
+                
+                <section role="tab-panel" id="review" class="tab-panel hidden">
+
+                    <div class="form-row">
+                        <label for="bookRating">Rating:</label>
+                            <input type="radio" id="zeroStars" name="rating" value="0">
+                            <label for="zeroStars">0</label>
+                            <input type="radio" id="oneStar" name="rating" value="1">
+                            <label for="oneStar">1</label>
+                            <input type="radio" id="twoStars" name="rating" value="2">
+                            <label for="twoStars">2</label>
+                            <input type="radio" id="threeStars" name="rating" value="3">
+                            <label for="threeStars">3</label>
+                            <input type="radio" id="fourStars" name="rating" value="4">
+                            <label for="html">4</label>
+                            <input type="radio" id="fiveStars" name="rating" value="5">
+                            <label for="html">5</label><br>
+                    </div>
+                    <div class="form-row">
+                        <label for="bookReview">Review:</label>
+                        <textarea id="bookReview" name="bookReview" placeholder="Write a review (optional)"></textarea><br>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="bookTags">Tags</label>
+                        <input type="text" id="bookTags" name="bookTags"><br>
+                    </div>
+                </section>
+
+                    <!-- <div class="form-row">
+                        <input type="submit" id="submitButton" value="SHELVE">
+                    </div> -->
             </div>
 
-             <div class="form-row">
-                <label for="bookTitle">Title:</label>
-                <input type="text" id="bookTitle" name="bookTitle" required="true"><br>
-            </div>
-
-            <div class="form-row">
-                <label for="bookAuthor">Author:</label>
-                <input type="text" id="bookAuthor" name="bookAuthor" required="true"><br>
-            </div>
-
-            <!-- Although there are a significant number of options that could be provided for this drop down, 
-                I have chosen 10 popular fiction genres most shown on book purchasing websites   -->
-
-            <div class="form-row">
-                <label for="bookGenre">Genre:</label> 
-                <select id="bookGenre" name="bookGenre" required="true">
-                    <option selected disabled>Select a Genre</option>
-                    <option value="classics">Classics</option>
-                    <option value="crimeAndMystery">Crime & Mystery</option>
-                    <option value="fantasy">Fantasy</option>
-                    <option value="generalFiction">General Fiction</option>
-                    <option value="graphicNovels">Graphic Novels</option>
-                    <option value="historical">Historical</option>
-                    <option value="horror">Horror</option>
-                    <option value="romance">Romance</option>
-                    <option value="scifi">SciFi</option>
-                    <option value="youngAdult">Young Adult</option>
-                </select><br>
-            </div>
-
-            <div class="form-row">
-                <label for="bookFormat">Format:</label> 
-                <select id="bookFormat" name="bookFormat" required="true">
-                    <option selected disabled>Select a Format</option>
-                    <option value="physical">Physical</option>
-                    <option value="digital">Digital</option>
-                    <option value="audio">Audio</option>
-                </select><br>
-            </div>
-
-            <div class="form-row">
-                <label for="bookLength">Length:</label> 
-                <input type="number" id="bookLength" name="bookLength" min="1" required="true"><br> 
-            </div>
-
-            <div class="form-row">
-                <label for="bookStartDate">Start Date:</label>
-                <input type="date" id="bookStartDate" name="bookStartDate" required="true"
-                    min="2023-01-01" max="2023-12-31"><br>
-            </div>
-
-            <div class="form-row">
-                <label for="bookRating">Rating:</label>
-                    <input type="radio" id="zeroStars" name="rating" value="0">
-                    <label for="zeroStars">0</label>
-                    <input type="radio" id="oneStar" name="rating" value="1">
-                    <label for="oneStar">1</label>
-                    <input type="radio" id="twoStars" name="rating" value="2">
-                    <label for="twoStars">2</label>
-                    <input type="radio" id="threeStars" name="rating" value="3">
-                    <label for="threeStars">3</label>
-                    <input type="radio" id="fourStars" name="rating" value="4">
-                    <label for="html">4</label>
-                    <input type="radio" id="fiveStars" name="rating" value="5">
-                    <label for="html">5</label><br>
-            </div>
-            <div class="form-row">
-                <label for="bookReview">Review:</label>
-                <textarea id="bookReview" name="bookReview" placeholder="Write a review (optional)"></textarea><br>
-            </div>
-
-            <div class="form-row">
-                <label for="bookTags">Tags</label>
-                <input type="text" id="bookTags" name="bookTags"><br>
-            </div>
-
-            <div class="form-row">
-                <input type="submit" id="submitButton" value="SHELVE">
+            <!-- Create some pagination for going back / forward and submitting -->
+            <div class="pagination">
+                <a class="btn hidden" id="prev">BACK</a>
+                <a class="btn" id="next">NEXT</a>
+                <button class="btn btn-submit hidden" id="submit">SHELVE</button>
             </div>
 
         </form>
 
     </section>
 
-    <h2>Books</h2>
+    <h2>My Books</h2>
     <ul id="bookList"></ul>
 
 

@@ -8,17 +8,14 @@ const booklist = document.getElementById("bookList");
 const modal = document.getElementById("formModal");
 const addButton = document.getElementById("addToShelfButton");
 
-//Modal - open 
+
+displayBooks();
+
+//Opening the modal when you select the "add to shelf" button 
 addButton.addEventListener("click", function (event) {
     event.preventDefault();
     modal.showModal();
 })
-
-
-
-
-
-
 
 
 // Handle form submission, using input values to add new book
@@ -26,8 +23,6 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
     const tagsArray = tagify.value.map((tag) => tag.value); // Extract the tag values
     modal.close();
-    
-// (cover, title, author, genre, format, length, startDate, rating, review, tags)
 
     addBook(
         form.elements.bookCover.value,
@@ -37,64 +32,79 @@ form.addEventListener("submit", function (event) {
         form.elements.bookFormat.value,
         form.elements.bookLength.value,
         form.elements.bookStartDate.value,
+        form.elements.bookFinishDate.value,
         document.querySelector('input[name="bookRating"]:checked').value,
         form.elements.bookReview.value,
         tagsArray
     );
+
+    // Hide current tab
+    tabPanels[currentStep].classList.add('hidden')
+    tabTargets[currentStep].classList.remove('active')
+  
+    // Show first tab
+    currentStep = 0
+    tabPanels[currentStep].classList.remove('hidden')
+    tabTargets[currentStep].classList.add('active')
+    
+    // validateEntry()
+    updateStatusDisplay()
 });
 
-// General function for fetching books from localStorage and rendering to screen
+
+// setting modal to close on click outside of the form box
+// modal instructions from https://blog.webdevsimplified.com/2023-04/html-dialog/ via canvas 
+
+modal.addEventListener("click", e => {
+    const modalDimensions = modal.getBoundingClientRect()
+    if (
+      e.clientX < modalDimensions.left ||
+      e.clientX > modalDimensions.right ||
+      e.clientY < modalDimensions.top ||
+      e.clientY > modalDimensions.bottom
+    ) {
+      modal.close()
+    }
+  })
+
+
+// General function for fetching tasks from localStorage and rendering to screen
 function displayBooks() {
 
     // Clear the booklist <ul> element's content
     booklist.innerHTML = ""
 
-    // Fetch and parse books array from localStorage
+    // Fetch and parse tasks array from localStorage
     let localBooks = JSON.parse(localStorage.getItem('books'))
 
-    // If there are books (localStorage item exists)
+    // If there are tasks (localStorage item exists)
     if (localBooks !== null) {
 
-    //     // Loop through all books in the array
-    //     localBooks.forEach(function (book) {
-
-    //         let taskImage = null;
-    //         switch (task.type) {
-    //             case 'Concept Ideation':
-    //                 taskImage = images['ideate']
-    //                 break;
-    //             case 'Wireframing':
-    //                 taskImage = images['design']
-    //                 break;
-    //             case 'Application Coding':
-    //                 taskImage = images['code']
-    //                 break;
-    //             default:
-    //                 break;
-    //         }
+        // Loop through all tasks in the array
+        localBooks.forEach(function (book) {
 
             // Create new list item and populate with content (including data attribute for ID)
-            let book = document.createElement("li");
-            book.setAttribute("data-id", book.id);
-            // book.innerHTML = `<p><strong>${book.name}</strong><br>${book.type}</p><img src='${taskImage}' width='50'/>`;
-            book.innerHTML = `<p><strong>${book.cover}</strong><br>${book.title}</p>`;
-            booklist.appendChild(book);
+            let item = document.createElement("li");
+            item.setAttribute("data-id", book.id);
+            console.log(book.bookName, book.bookRating);
+            item.innerHTML = `<p><strong>${book.title}</strong><br>${book.rating}</p>`;
+            booklist.appendChild(item);
 
-            // Clear the value of the input once the book has been added to the page
+            // Clear the value of the input once the task has been added to the page
             form.reset();
 
             // Setup delete button DOM elements
             let delButton = document.createElement("button");
             let delButtonText = document.createTextNode("Delete");
             delButton.appendChild(delButtonText);
-            book.appendChild(delButton); // Adds a delete button to every book
+            item.appendChild(delButton); // Adds a delete button to every task
 
             // Listen for when the delete button is clicked
             delButton.addEventListener("click", function () {
 
-                // Loop through all the books to find the matching ID and remove it from the array
+                // Loop through all the tasks to find the matching ID and remove it from the array
                 localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
-                    if (bookArrayElement.id == book.getAttribute('data-id')) {
+                    if (bookArrayElement.id == item.getAttribute('data-id')) {
                         localBooks.splice(bookArrayIndex, 1)
                     }
                 })
@@ -102,13 +112,65 @@ function displayBooks() {
                 // Update localStorage with the newly spliced array (converted to a JSON string)
                 localStorage.setItem('books', JSON.stringify(localBooks))
 
-                book.remove(); // Remove the book item from the page when button clicked
+                item.remove(); // Remove the task item from the page when button clicked
                 // Because we used 'let' to define the item, this will always delete the right element
 
             })
-        }
+        })
 
     }
+
+}
+
+
+// // General function for fetching books from localStorage and rendering to screen
+// function displayBooks() {
+
+//     // Clear the booklist <ul> element's content
+//     booklist.innerHTML = ""
+
+//     // Fetch and parse books array from localStorage
+//     let localBooks = JSON.parse(localStorage.getItem('books'))
+
+//     // If there are books (localStorage item exists)
+//     if (localBooks !== null) {
+
+//             // Create new list item and populate with content (including data attribute for ID)
+//             let book = document.createElement("li");
+//             // book.setAttribute("data-id", book.id);
+//             // book.innerHTML = `<p><strong>${book.name}</strong><br>${book.type}</p><img src='${taskImage}' width='50'/>`;
+//             book.innerHTML = `<p><strong>${book.bookCover}</strong><br>${book.bookRating}</p>`;
+//             booklist.appendChild(book);
+
+//             // Clear the value of the input once the book has been added to the page
+//             form.reset();
+
+//             // Setup delete button DOM elements
+//             let delButton = document.createElement("button");
+//             let delButtonText = document.createTextNode("Delete");
+//             delButton.appendChild(delButtonText);
+//             book.appendChild(delButton); // Adds a delete button to every book
+
+//             // Listen for when the delete button is clicked
+//             delButton.addEventListener("click", function () {
+
+//                 // Loop through all the books to find the matching ID and remove it from the array
+//                 localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
+//                     if (bookArrayElement.id == book.getAttribute('data-id')) {
+//                         localBooks.splice(bookArrayIndex, 1)
+//                     }
+//                 })
+
+//                 // Update localStorage with the newly spliced array (converted to a JSON string)
+//                 localStorage.setItem('books', JSON.stringify(localBooks))
+
+//                 book.remove(); // Remove the book item from the page when button clicked
+//                 // Because we used 'let' to define the item, this will always delete the right element
+
+//             })
+//         }
+
+//     }
 
 
 // Create a function called 'addBook'
@@ -117,7 +179,7 @@ function displayBooks() {
 // Replace the property values with the input paramaters
 // Add the object to the bookList array
 
-function addBook(cover, title, author, genre, format, length, startDate, rating, review, tags) {
+function addBook(cover, title, author, genre, format, length, startDate, finishDate, rating, review, tags) {
 
     // Creating the object, directly passing in the input parameters
     let book = {
@@ -128,12 +190,12 @@ function addBook(cover, title, author, genre, format, length, startDate, rating,
         format, 
         length, 
         startDate,
+        finishDate,
         rating,
         review,
         tags,
         id: Date.now(),
-        date: new Date().toISOString()
-        // daysRead: 
+        daysRead: finishDate - startDate
     }
 
 

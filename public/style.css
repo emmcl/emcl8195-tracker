@@ -180,12 +180,8 @@ textarea.form-input {
   transition: ease-in-out .3s all;
 }
 
-.btn-submit {
-  background-color: #A62848;
-}
-
-.btn-submit:hover {
-  /* background: #FFCFDD; */
+dialog::backdrop{
+    background: #FFCFDD99;
 }
 
 .pagination {

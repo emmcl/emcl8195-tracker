@@ -16,147 +16,152 @@
 <body>
 
  <!-- hero image  -->
-    <div class="hero-image-container">
-		
-        <h1 class="hero-image-text">BOOK TRACKER</h1>
+    <main class="content">
+        <div class="hero-image-container">
+            
+            <h1 class="hero-image-text">BOOK TRACKER</h1>
 
-        <div class="book">
-            <span class="page turn"></span>
-            <span class="page turn"></span>
-            <span class="page turn"></span>
-            <span class="page turn"></span>
-            <span class="page turn"></span>
-            <span class="page turn"></span>
-            <span class="page turn"></span>
-            <span class="cover"></span>
-            <span class="page"></span>
-            <span class="cover turn"></span>
+            <div class="book">
+                <span class="page turn"></span>
+                <span class="page turn"></span>
+                <span class="page turn"></span>
+                <span class="page turn"></span>
+                <span class="page turn"></span>
+                <span class="page turn"></span>
+                <span class="page turn"></span>
+                <span class="cover"></span>
+                <span class="page"></span>
+                <span class="cover turn"></span>
+            </div>
+
+        <!-- add to shelf button -->
+            <button type="button" id="addToShelfButton" class="addToShelf">Add To Shelf</button>
+        
+            <img class="hero-image" src="images/hero-image-cropped.png" alt="Image of blurred bookshelf with books in a rainbow"/>
+        
         </div>
 
-    <!-- add to shelf button -->
-        <button type="button" id="addToShelfButton" class="addToShelf">Add To Shelf</button>
-	
-        <img class="hero-image" src="images/hero-image-cropped.png" alt="Image of blurred bookshelf with books in a rainbow"/>
-    
-    </div>
+    <!-- form to add books to the tracker -->
+        <dialog class="form-container" id="formModal">
 
-<!-- form to add books to the tracker -->
-    <dialog class="form-container" id="formModal">
-
-        <!-- nav section to tell the user where they are up to -->
-        <nav class="tab-status">
-            <span class="tab active">1</span>
-            <span class="tab">2</span>
-            <span class="tab">3</span>
-        </nav>
-        
-        <form id="addBookForm" action="#">
-            <div role="tab-list">
-
-                <section role="tabpanel" id="general" class="tabpanel">
-                    <h2 class="pop-up-heading">GENERAL INFORMATION</h2>
-
-                    <div class="form-row">
-                        <label for="bookCover">Cover:</label>
-                        <input type="file" class="form-input" id="bookCover" name="bookCover" accept="image/x-png,image/gif,image/jpeg" required="true"><br>
-                    </div>
-
-                    <div class="form-row">
-                        <label for="bookTitle">Title:</label>
-                        <input type="text" class="form-input" id="bookTitle" name="bookTitle" placeholder="eg. The Hobbit" required="true"><br>
-                    </div>
-
-                    <div class="form-row">
-                        <label for="bookAuthor">Author:</label>
-                        <input type="text" class="form-input" id="bookAuthor" name="bookAuthor" placeholder="eg. JRR Tolkien" required="true"><br>
-                    </div>
-                </section>
+            <!-- nav section to tell the user where they are up to -->
+            <nav class="tab-status">
+                <span class="tab active">1</span>
+                <span class="tab">2</span>
+                <span class="tab">3</span>
+            </nav>
             
+            <form id="addBookForm" action="#">
+                <div role="tab-list">
 
-                <section role="tabpanel" id="specifics" class="tabpanel hidden">
-                    <h2 class="pop-up-heading">SPECIFIC INFORMATION</h2>
+                    <section role="tabpanel" id="general" class="tabpanel">
+                        <h2 class="pop-up-heading">GENERAL INFORMATION</h2>
 
-                    <!-- Although there are a significant number of options that could be provided for this drop down, 
-                        I have chosen 10 popular fiction genres most shown on book purchasing websites   -->   
+                        <div class="form-row">
+                            <label for="bookCover">Cover:</label>
+                            <input type="file" class="form-input" id="bookCover" name="bookCover" accept="image/x-png,image/gif,image/jpeg" required="true"><br>
+                        </div>
 
-                    <div class="form-row">
-                        <label for="bookGenre">Genre:</label> 
-                        <select id="bookGenre" class="form-input" name="bookGenre" required="true">
-                            <option selected disabled>Select a Genre</option>
-                            <option value="classics">Classics</option>
-                            <option value="crimeAndMystery">Crime & Mystery</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="generalFiction">General Fiction</option>
-                            <option value="graphicNovels">Graphic Novels</option>
-                            <option value="historical">Historical</option>
-                            <option value="horror">Horror</option>
-                            <option value="romance">Romance</option>
-                            <option value="scifi">SciFi</option>
-                            <option value="youngAdult">Young Adult</option>
-                        </select><br>
-                    </div>
+                        <div class="form-row">
+                            <label for="bookTitle">Title:</label>
+                            <input type="text" class="form-input" id="bookTitle" name="bookTitle" placeholder="eg. The Hobbit" required="true"><br>
+                        </div>
 
-                    <div class="form-row">
-                        <label for="bookFormat">Format:</label> 
-                        <select id="bookFormat" class="form-input" name="bookFormat" required="true">
-                            <option selected disabled>Select a Format</option>
-                            <option value="physical">Physical</option>
-                            <option value="digital">Digital</option>
-                            <option value="audio">Audio</option>
-                        </select><br>
-                    </div>
+                        <div class="form-row">
+                            <label for="bookAuthor">Author:</label>
+                            <input type="text" class="form-input" id="bookAuthor" name="bookAuthor" placeholder="eg. JRR Tolkien" required="true"><br>
+                        </div>
+                        <!-- Although there are a significant number of options that could be provided for this drop down, 
+                            I have chosen 10 popular fiction genres most shown on book purchasing websites   -->   
 
-                    <div class="form-row">
-                        <label for="bookLength">Length:</label> 
-                        <input type="number" class="form-input" id="bookLength" name="bookLength"placeholder="eg. 310" min="1" required="true"><br> 
-                    </div>
+                        <div class="form-row">
+                            <label for="bookGenre">Genre:</label> 
+                            <select id="bookGenre" class="form-input" name="bookGenre" required="true">
+                                <option selected disabled>Select a Genre</option>
+                                <option value="classics">Classics</option>
+                                <option value="crimeAndMystery">Crime & Mystery</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="generalFiction">General Fiction</option>
+                                <option value="graphicNovels">Graphic Novels</option>
+                                <option value="historical">Historical</option>
+                                <option value="horror">Horror</option>
+                                <option value="romance">Romance</option>
+                                <option value="scifi">SciFi</option>
+                                <option value="youngAdult">Young Adult</option>
+                            </select><br>
+                        </div>
 
-                    <div class="form-row">
-                        <label for="bookStartDate">Start Date:</label>
-                        <input type="date" class="form-input" id="bookStartDate" name="bookStartDate" required="true" min="2023-01-01" max="2023-12-31"><br>
-                    </div>
-                </section>
+                    </section>
                 
-                <section role="tabpanel" id="review" class="tabpanel hidden">
-                    <h2 class="pop-up-heading">REVIEW INFORMATION</h2>
 
-                    <div class="form-row">
-                        <label for="bookRating">Rating:</label>
-                            <input type="radio" class="form-input" id="na" name="bookRating" value="0" checked>
-                            <label for="na">N/A</label>
-                            <input type="radio" class="form-input" id="oneStar" name="bookRating" value="1">
-                            <label for="oneStar">1</label>
-                            <input type="radio" class="form-input" id="twoStars" name="bookRating" value="2">
-                            <label for="twoStars">2</label>
-                            <input type="radio" class="form-input" id="threeStars" name="bookRating" value="3">
-                            <label for="threeStars">3</label>
-                            <input type="radio" class="form-input" id="fourStars" name="bookRating" value="4">
-                            <label for="fourStars">4</label>
-                            <input type="radio" class="form-input" id="fiveStars" name="bookRating" value="5">
-                            <label for="fiveStars">5</label><br>         
-                    </div>
-                    <div class="form-row">
-                        <label for="bookReview">Review:</label>
-                        <textarea id="bookReview" class="form-input" name="bookReview" placeholder="Write a review" required="true"></textarea><br>
-                    </div>
+                    <section role="tabpanel" id="specifics" class="tabpanel hidden">
+                        <h2 class="pop-up-heading">SPECIFIC INFORMATION</h2>
+                        <div class="form-row">
+                            <label for="bookFormat">Format:</label> 
+                            <select id="bookFormat" class="form-input" name="bookFormat" required="true">
+                                <option selected disabled>Select a Format</option>
+                                <option value="physical">Physical</option>
+                                <option value="digital">Digital</option>
+                                <option value="audio">Audio</option>
+                            </select><br>
+                        </div>
 
-                    <div class="form-row">
-                        <label for="bookTags">Tags</label>
-                        <input type="text" class="form-input" id="bookTags" name="bookTags" required="true"><br>
-                    </div>
-                </section>          
-            </div>  
-            <!-- Create some pagination for going back / forward and submitting -->
-            <div class="pagination">
-                <a class="btn hidden" id="prev">BACK</a>
-                <a class="btn" id="next">NEXT</a>
-                <button class="btn btn-submit hidden" id="submit">SHELVE</button>
-            </div>
-        </form>
-    </dialog>
+                        <div class="form-row">
+                            <label for="bookLength">Length:</label> 
+                            <input type="number" class="form-input" id="bookLength" name="bookLength"placeholder="eg. 310" min="1" required="true"><br> 
+                        </div>
 
-    <h2>My Books</h2>
-    <ul id="bookList"></ul>
+                        <div class="form-row">
+                            <label for="bookStartDate">Start Date:</label>
+                            <input type="date" class="form-input" id="bookStartDate" name="bookStartDate" required="true" min="2023-01-01" max="2023-12-31"><br>
+                        </div>
+                        <div class="form-row">
+                            <label for="bookFinishDate">Finish Date:</label>
+                            <input type="date" class="form-input" id="bookFinishDate" name="bookFinishDate" required="true" min="2023-01-01" max="2023-12-31"><br>
+                        </div>
+                    </section>
+                    
+                    <section role="tabpanel" id="review" class="tabpanel hidden">
+                        <h2 class="pop-up-heading">REVIEW INFORMATION</h2>
+
+                        <div class="form-row">
+                            <label for="bookRating">Rating:</label>
+                                <input type="radio" class="form-input" id="na" name="bookRating" value="0" checked>
+                                <label for="na">N/A</label>
+                                <input type="radio" class="form-input" id="oneStar" name="bookRating" value="1">
+                                <label for="oneStar">1</label>
+                                <input type="radio" class="form-input" id="twoStars" name="bookRating" value="2">
+                                <label for="twoStars">2</label>
+                                <input type="radio" class="form-input" id="threeStars" name="bookRating" value="3">
+                                <label for="threeStars">3</label>
+                                <input type="radio" class="form-input" id="fourStars" name="bookRating" value="4">
+                                <label for="fourStars">4</label>
+                                <input type="radio" class="form-input" id="fiveStars" name="bookRating" value="5">
+                                <label for="fiveStars">5</label><br>         
+                        </div>
+                        <div class="form-row">
+                            <label for="bookReview">Review:</label>
+                            <textarea id="bookReview" class="form-input" name="bookReview" placeholder="Write a review" required="true"></textarea><br>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="bookTags">Tags</label>
+                            <input type="text" class="form-input" id="bookTags" name="bookTags" required="true"><br>
+                        </div>
+                    </section>          
+                </div>  
+                <!-- Create some pagination for going back / forward and submitting -->
+                <div class="pagination">
+                    <a class="btn hidden" id="prev">BACK</a>
+                    <a class="btn" id="next">NEXT</a>
+                    <button class="btn btn-submit hidden" id="submit">SHELVE</button>
+                </div>
+            </form>
+        </dialog>
+
+        <h2>My Books</h2>
+        <ul id="bookList"></ul>
+    </main>
 
 
     <script type="module" src="script.js"></script>

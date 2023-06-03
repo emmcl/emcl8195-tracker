@@ -70,7 +70,6 @@ modal.addEventListener("click", e => {
 
 // handling user uploaded images
 
-
 // Get the image input and destination elements
 const imgInput = document.getElementById("bookCover");
 // const imgDest = document.getElementById("img-dest");
@@ -93,11 +92,6 @@ imgInput.addEventListener("change", function (event) {
 
     selectedImageBase64 = base64
     
-    // Store the base64 image data in localStorage with the key 'imgData'
-    // localStorage.setItem("imgData", base64);
-    
-    // Set the destination element's src attribute to the base64 data to display the uploaded image
-    // imgDest.src = base64;
   };
 
   // Read the uploaded image as a Data URL (Base64 encoded string)
@@ -126,90 +120,42 @@ function displayBooks() {
             let item = document.createElement("li");
             item.setAttribute("data-id", book.id);
             console.log(book.bookName, book.bookRating);
-            item.innerHTML = `<p><strong>${book.cover}</strong><br>${book.rating}</p>`;
+            // item.innerHTML = `<p><strong>${book.cover}</strong><br>${book.rating}</p>`;
+            item.innerHTML = `<img src="${book.cover}"/><br><p>${book.rating}</p>`;
+            // `<img src="${book.cover}"">`
             booklist.appendChild(item);
 
             // Clear the value of the input once the task has been added to the page
             form.reset();
 
-            // Setup delete button DOM elements
-            let delButton = document.createElement("button");
-            let delButtonText = document.createTextNode("Delete");
-            delButton.appendChild(delButtonText);
-            item.appendChild(delButton); // Adds a delete button to every task
+            // // Setup delete button DOM elements
+            // let delButton = document.createElement("button");
+            // let delButtonText = document.createTextNode("Delete");
+            // delButton.appendChild(delButtonText);
+            // item.appendChild(delButton); // Adds a delete button to every task
 
             // Listen for when the delete button is clicked
-            delButton.addEventListener("click", function () {
+            // delButton.addEventListener("click", function () {
 
-                // Loop through all the tasks to find the matching ID and remove it from the array
-                localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
-                    if (bookArrayElement.id == item.getAttribute('data-id')) {
-                        localBooks.splice(bookArrayIndex, 1)
-                    }
-                })
+            //     // Loop through all the tasks to find the matching ID and remove it from the array
+            //     localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
+            //         if (bookArrayElement.id == item.getAttribute('data-id')) {
+            //             localBooks.splice(bookArrayIndex, 1)
+            //         }
+            //     })
 
-                // Update localStorage with the newly spliced array (converted to a JSON string)
-                localStorage.setItem('books', JSON.stringify(localBooks))
+            //     // Update localStorage with the newly spliced array (converted to a JSON string)
+            //     localStorage.setItem('books', JSON.stringify(localBooks))
 
-                item.remove(); // Remove the task item from the page when button clicked
-                // Because we used 'let' to define the item, this will always delete the right element
+            //     item.remove(); // Remove the task item from the page when button clicked
+            //     // Because we used 'let' to define the item, this will always delete the right element
 
-            })
+            // })
         })
 
     }
 
 }
-
-
-// // General function for fetching books from localStorage and rendering to screen
-// function displayBooks() {
-
-//     // Clear the booklist <ul> element's content
-//     booklist.innerHTML = ""
-
-//     // Fetch and parse books array from localStorage
-//     let localBooks = JSON.parse(localStorage.getItem('books'))
-
-//     // If there are books (localStorage item exists)
-//     if (localBooks !== null) {
-
-//             // Create new list item and populate with content (including data attribute for ID)
-//             let book = document.createElement("li");
-//             // book.setAttribute("data-id", book.id);
-//             // book.innerHTML = `<p><strong>${book.name}</strong><br>${book.type}</p><img src='${taskImage}' width='50'/>`;
-//             book.innerHTML = `<p><strong>${book.bookCover}</strong><br>${book.bookRating}</p>`;
-//             booklist.appendChild(book);
-
-//             // Clear the value of the input once the book has been added to the page
-//             form.reset();
-
-//             // Setup delete button DOM elements
-//             let delButton = document.createElement("button");
-//             let delButtonText = document.createTextNode("Delete");
-//             delButton.appendChild(delButtonText);
-//             book.appendChild(delButton); // Adds a delete button to every book
-
-//             // Listen for when the delete button is clicked
-//             delButton.addEventListener("click", function () {
-
-//                 // Loop through all the books to find the matching ID and remove it from the array
-//                 localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
-//                     if (bookArrayElement.id == book.getAttribute('data-id')) {
-//                         localBooks.splice(bookArrayIndex, 1)
-//                     }
-//                 })
-
-//                 // Update localStorage with the newly spliced array (converted to a JSON string)
-//                 localStorage.setItem('books', JSON.stringify(localBooks))
-
-//                 book.remove(); // Remove the book item from the page when button clicked
-//                 // Because we used 'let' to define the item, this will always delete the right element
-
-//             })
-//         }
-
-//     }
 
 
 // Create a function called 'addBook'

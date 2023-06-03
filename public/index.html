@@ -34,14 +34,14 @@
         </div>
 
     <!-- add to shelf button -->
-        <button type="button" class="add">Add To Shelf</button>
+        <button type="button" id="addToShelfButton" class="addToShelf">Add To Shelf</button>
 	
         <img class="hero-image" src="images/hero-image-cropped.png" alt="Image of blurred bookshelf with books in a rainbow"/>
     
     </div>
 
 <!-- form to add books to the tracker -->
-    <main class="form-container">
+    <dialog class="form-container" id="formModal">
 
         <!-- nav section to tell the user where they are up to -->
         <nav class="tab-status">
@@ -58,7 +58,7 @@
 
                     <div class="form-row">
                         <label for="bookCover">Cover:</label>
-                        <input type="file" class="form-input" id="bookCover" name="bookCover" accept="image/x-png,image/gif,image/jpeg"><br>
+                        <input type="file" class="form-input" id="bookCover" name="bookCover" accept="image/x-png,image/gif,image/jpeg" required="true"><br>
                     </div>
 
                     <div class="form-row">
@@ -113,8 +113,7 @@
 
                     <div class="form-row">
                         <label for="bookStartDate">Start Date:</label>
-                        <input type="date" class="form-input" id="bookStartDate" name="bookStartDate" required="true"
-                            min="2023-01-01" max="2023-12-31"><br>
+                        <input type="date" class="form-input" id="bookStartDate" name="bookStartDate" required="true" min="2023-01-01" max="2023-12-31"><br>
                     </div>
                 </section>
                 
@@ -138,12 +137,12 @@
                     </div>
                     <div class="form-row">
                         <label for="bookReview">Review:</label>
-                        <textarea id="bookReview" class="form-input" name="bookReview" placeholder="Write a review (optional)"></textarea><br>
+                        <textarea id="bookReview" class="form-input" name="bookReview" placeholder="Write a review" required="true"></textarea><br>
                     </div>
 
                     <div class="form-row">
                         <label for="bookTags">Tags</label>
-                        <input type="text" class="form-input" id="bookTags" name="bookTags"><br>
+                        <input type="text" class="form-input" id="bookTags" name="bookTags" required="true"><br>
                     </div>
                 </section>          
             </div>  
@@ -154,7 +153,7 @@
                 <button class="btn btn-submit hidden" id="submit">SHELVE</button>
             </div>
         </form>
-    </main>
+    </dialog>
 
     <h2>My Books</h2>
     <ul id="bookList"></ul>

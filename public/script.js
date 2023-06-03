@@ -2,15 +2,30 @@
 const tagsInput = document.getElementById("bookTags");
 const tagify = new Tagify(tagsInput);
 
-
 // Setting up variables for our HTML elements using DOM selection
 const form = document.getElementById("addBookForm");
 const booklist = document.getElementById("bookList");
+const modal = document.getElementById("formModal");
+const addButton = document.getElementById("addToShelfButton");
+
+//Modal - open 
+addButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    modal.showModal();
+})
+
+
+
+
+
+
+
 
 // Handle form submission, using input values to add new book
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     const tagsArray = tagify.value.map((tag) => tag.value); // Extract the tag values
+    modal.close();
     
 // (cover, title, author, genre, format, length, startDate, rating, review, tags)
 

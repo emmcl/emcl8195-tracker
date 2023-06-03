@@ -121,8 +121,7 @@ function displayBooks() {
             item.setAttribute("data-id", book.id);
             console.log(book.bookName, book.bookRating);
             // item.innerHTML = `<p><strong>${book.cover}</strong><br>${book.rating}</p>`;
-            item.innerHTML = `<img src="${book.cover}"/><br><p>${book.rating}</p>`;
-            // `<img src="${book.cover}"">`
+            item.innerHTML = `<img src="${book.cover}" alt="${book.title} by ${book.author}" class="displayCover"/><br><p class="displayRating">${book.rating}</p>`;
             booklist.appendChild(item);
 
             // Clear the value of the input once the task has been added to the page

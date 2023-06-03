@@ -106,3 +106,6 @@ dist
 .parcel-cache/
 
 .tmp*
+
+.DS_Store
+public/.DS_Store

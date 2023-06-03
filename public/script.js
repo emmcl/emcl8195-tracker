@@ -8,6 +8,7 @@ const booklist = document.getElementById("bookList");
 const modal = document.getElementById("formModal");
 const addButton = document.getElementById("addToShelfButton");
 
+var selectedImageBase64 = ""
 
 displayBooks();
 
@@ -25,7 +26,7 @@ form.addEventListener("submit", function (event) {
     modal.close();
 
     addBook(
-        form.elements.bookCover.value,
+        selectedImageBase64,
         form.elements.bookTitle.value,
         form.elements.bookAuthor.value,
         form.elements.bookGenre.value,
@@ -67,6 +68,44 @@ modal.addEventListener("click", e => {
     }
   })
 
+// handling user uploaded images
+
+
+// Get the image input and destination elements
+const imgInput = document.getElementById("bookCover");
+// const imgDest = document.getElementById("img-dest");
+
+// Add a 'change' event listener to the image input element
+imgInput.addEventListener("change", function (event) {
+  // Create a new FileReader instance
+  var reader = new FileReader();
+
+  // Get the first selected file from the input event (the image)
+  var selectedFile = event.target.files[0];
+
+  // Set up the FileReader's 'onloadend' event handler
+  reader.onloadend = function (e) {
+    // Get the base64 representation of the image from the event target result
+    var base64 = e.target.result;
+    
+    // Log the base64 data to the console
+    console.log(base64);
+
+    selectedImageBase64 = base64
+    
+    // Store the base64 image data in localStorage with the key 'imgData'
+    // localStorage.setItem("imgData", base64);
+    
+    // Set the destination element's src attribute to the base64 data to display the uploaded image
+    // imgDest.src = base64;
+  };
+
+  // Read the uploaded image as a Data URL (Base64 encoded string)
+  reader.readAsDataURL(selectedFile);
+});
+
+
+
 
 // General function for fetching tasks from localStorage and rendering to screen
 function displayBooks() {
@@ -87,7 +126,7 @@ function displayBooks() {
             let item = document.createElement("li");
             item.setAttribute("data-id", book.id);
             console.log(book.bookName, book.bookRating);
-            item.innerHTML = `<p><strong>${book.title}</strong><br>${book.rating}</p>`;
+            item.innerHTML = `<p><strong>${book.cover}</strong><br>${book.rating}</p>`;
             booklist.appendChild(item);
 
             // Clear the value of the input once the task has been added to the page
@@ -197,8 +236,6 @@ function addBook(cover, title, author, genre, format, length, startDate, finishD
         id: Date.now(),
         daysRead: finishDate - startDate
     }
-
-
 
     // Fetch and parse books array from localStorage 
     let localBooks = JSON.parse(localStorage.getItem('books'))

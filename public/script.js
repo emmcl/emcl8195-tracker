@@ -8,7 +8,7 @@ const tagify = new Tagify(tagsInput);
 // Setting up variables for our HTML elements using DOM selection
 const form = document.getElementById("addBookForm");
 const booklist = document.getElementById("bookList");
-const modal = document.getElementById("formModal");
+const formModal = document.getElementById("formModal");
 const bookInfoModal = document.getElementById("bookInfoModal");
 const addButton = document.getElementById("addToShelfButton");
 var selectedImageBase64 = ""
@@ -19,7 +19,7 @@ displayBooks();
 //Opening the modal when you select the "add to shelf" button 
 addButton.addEventListener("click", function (event) {
     event.preventDefault();
-    modal.showModal();
+    formModal.showModal();
 })
 
 
@@ -27,7 +27,7 @@ addButton.addEventListener("click", function (event) {
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     const tagsArray = tagify.value.map((tag) => tag.value); // Extract the tag values
-    modal.close();
+    formModal.close();
     // let rating = getStars(document.querySelector('input[name="bookRating"]:checked').value)
     let rating = document.querySelector('input[name="bookRating"]:checked').value
 
@@ -79,15 +79,27 @@ function getStars (rating) {
 // setting modal to close on click outside of the form box
 // modal instructions from https://blog.webdevsimplified.com/2023-04/html-dialog/ via canvas 
 
-modal.addEventListener("click", e => {
-    const modalDimensions = modal.getBoundingClientRect()
+formModal.addEventListener("click", e => {
+    const modalDimensions = formModal.getBoundingClientRect()
     if (
       e.clientX < modalDimensions.left ||
       e.clientX > modalDimensions.right ||
       e.clientY < modalDimensions.top ||
       e.clientY > modalDimensions.bottom
     ) {
-      modal.close()
+      formModal.close()
+    }
+  })
+
+bookInfoModal.addEventListener("click", e => {
+    const modalDimensions = bookInfoModal.getBoundingClientRect()
+    if (
+      e.clientX < modalDimensions.left ||
+      e.clientX > modalDimensions.right ||
+      e.clientY < modalDimensions.top ||
+      e.clientY > modalDimensions.bottom
+    ) {
+      bookInfoModal.close()
     }
   })
 
@@ -146,9 +158,18 @@ function displayBooks() {
             
             item.addEventListener("click", function (event) {
                 event.preventDefault();
-                document.getElementById('more-info-title').textContent = book.title
-                document.getElementById('more-info-cover').src
-                // 
+                document.getElementById('more-info-modal-title').textContent = book.title;
+                document.getElementById('more-info-modal-cover').src = book.cover;
+                document.getElementById('more-info-modal-author').textContent = book.author;
+                document.getElementById('more-info-modal-genre').textContent = book.genre;
+                document.getElementById('more-info-modal-format').textContent = book.format;
+                document.getElementById('more-info-modal-length').textContent = book.length;
+                document.getElementById('more-info-modal-started').textContent = book.startDate;
+                document.getElementById('more-info-modal-finished').textContent = book.finishDate;
+                // document.getElementById('more-info- modal-days').textContent = book.daysRead;
+                document.getElementById('more-info-modal-length').textContent = book.length;
+                document.getElementById('more-info-modal-review').textContent = book.review;
+                document.getElementById('more-info-modal-tags').textContent = book.tags;
                 bookInfoModal.showModal();
             });
             

@@ -283,20 +283,6 @@ dialog::backdrop{
 
 
 
-/* Media query for smaller devices */
-@media screen and (max-width: 700px){
-.displayCover {
-    max-width: 50%
-  }
-}
-
-
-
-
-
-
-
-
 
 /* book opening animation - from https://codepen.io/valerite-dev/pen/XjOeeK */
 
@@ -395,3 +381,23 @@ dialog::backdrop{
     100% {  transform: rotateY(30deg);
       z-index: 999;}
   }
+
+
+
+
+
+  /* Media query for smaller devices */
+@media screen and (max-width: 700px){
+
+    h1 {
+        font-size: 30pt;
+    }
+
+    .addToShelf{
+        font-size: 20pt;
+        /* padding: 5px 20px;
+        margin: 70px auto;
+        border-radius: 8px;
+        border: 1px #D6748F; */
+    }
+}

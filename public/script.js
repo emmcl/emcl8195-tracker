@@ -154,7 +154,7 @@ function displayBooks() {
             // Create new list item and populate with content (including data attribute for ID)
             let item = document.createElement("li");
             item.setAttribute("data-id", book.id);
-            item.innerHTML = `<div><img src="${book.cover}" class="displayBook" alt="${book.title} by ${book.author}"/><br><img src="${getStars(book.rating)}"class="displayBook"/></div>`;
+            item.innerHTML = `<img src="${book.cover}" class="displayBook" alt="${book.title} by ${book.author}"/><br><img src="${getStars(book.rating)}"class="displayBook"/>`;
             
             item.addEventListener("click", function (event) {
                 event.preventDefault();
@@ -162,15 +162,14 @@ function displayBooks() {
                 document.getElementById("more-info-modal-cover").src = book.cover;
                 document.getElementById("more-info-modal-rating").src = getStars(book.rating);
                 document.getElementById("more-info-modal-delete");
-                document.getElementById("more-info-modal-author").innerHTML = book.author;
+                document.getElementById("more-info-modal-author").innerHTML = book.author
                 document.getElementById("more-info-modal-genre").textContent = book.genre;
                 document.getElementById("more-info-modal-format").textContent = book.format;
                 document.getElementById("more-info-modal-length").textContent = book.length;
                 document.getElementById("more-info-modal-started").textContent = book.startDate;
                 document.getElementById("more-info-modal-finished").textContent = book.finishDate;
                 document.getElementById("more-info-modal-days").textContent = book.daysRead;
-                document.getElementById("more-info-modal-length").textContent = book.length;
-                document.getElementById("more-info-modal-review").textContent = book.review;
+                document.getElementById("more-info-modal-review").textContent = `"${book.review};"` //display review in quotation marks
                 document.getElementById("more-info-modal-tags").textContent = book.tags;
                 bookInfoModal.showModal();
             });

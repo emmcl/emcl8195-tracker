@@ -1,3 +1,6 @@
+//importing images for star ratings 
+import images from "./images/star-ratings/*.png";
+
 //This is for the tags input, we need to initialise the tags input as a Tagify object
 const tagsInput = document.getElementById("bookTags");
 const tagify = new Tagify(tagsInput);
@@ -6,10 +9,11 @@ const tagify = new Tagify(tagsInput);
 const form = document.getElementById("addBookForm");
 const booklist = document.getElementById("bookList");
 const modal = document.getElementById("formModal");
+const bookInfoModal = document.getElementById("bookInfoModal");
 const addButton = document.getElementById("addToShelfButton");
-
 var selectedImageBase64 = ""
 
+//run display books on each load - not just after submission of form
 displayBooks();
 
 //Opening the modal when you select the "add to shelf" button 
@@ -24,6 +28,8 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
     const tagsArray = tagify.value.map((tag) => tag.value); // Extract the tag values
     modal.close();
+    // let rating = getStars(document.querySelector('input[name="bookRating"]:checked').value)
+    let rating = document.querySelector('input[name="bookRating"]:checked').value
 
     addBook(
         selectedImageBase64,
@@ -34,7 +40,7 @@ form.addEventListener("submit", function (event) {
         form.elements.bookLength.value,
         form.elements.bookStartDate.value,
         form.elements.bookFinishDate.value,
-        document.querySelector('input[name="bookRating"]:checked').value,
+        rating,
         form.elements.bookReview.value,
         tagsArray
     );
@@ -51,6 +57,23 @@ form.addEventListener("submit", function (event) {
     // validateEntry()
     updateStatusDisplay()
 });
+
+//function to get star rating image based on radio funtion
+function getStars (rating) {
+    if (rating == "1") {
+        return images["one-stars"];
+    } else if (rating == "2") {
+        return images["two-stars"];
+    } else if (rating == "3") {
+        return images["three-stars"];
+    } else if (rating == "4") {
+        return images["four-stars"];
+    } else if (rating == "5") {
+        return images["five-stars"];
+    } else {
+        return images["zero-stars"];
+    }
+ }
 
 
 // setting modal to close on click outside of the form box
@@ -119,9 +142,16 @@ function displayBooks() {
             // Create new list item and populate with content (including data attribute for ID)
             let item = document.createElement("li");
             item.setAttribute("data-id", book.id);
-            console.log(book.bookName, book.bookRating);
-            // item.innerHTML = `<p><strong>${book.cover}</strong><br>${book.rating}</p>`;
-            item.innerHTML = `<img src="${book.cover}" alt="${book.title} by ${book.author}" class="displayCover"/><br><p class="displayRating">${book.rating}</p>`;
+            item.innerHTML = `<div class="displayBook"><img src="${book.cover}" alt="${book.title} by ${book.author}"/><br><img src="${getStars(book.rating)}"/></div>`;
+            
+            item.addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById('more-info-title').textContent = book.title
+                document.getElementById('more-info-cover').src
+                // 
+                bookInfoModal.showModal();
+            });
+            
             booklist.appendChild(item);
 
             // Clear the value of the input once the task has been added to the page
@@ -165,6 +195,13 @@ function displayBooks() {
 
 function addBook(cover, title, author, genre, format, length, startDate, finishDate, rating, review, tags) {
 
+    // To calculate the time difference of two dates
+    // via https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
+    // var timeReading = finishDate.getTime() - startDate.getTime();
+    // console.log(timeReading);
+    // var daysReading = timeReading / (1000 * 3600 * 24);
+    // console.log(daysReading);
+
     // Creating the object, directly passing in the input parameters
     let book = {
         cover,
@@ -179,7 +216,7 @@ function addBook(cover, title, author, genre, format, length, startDate, finishD
         review,
         tags,
         id: Date.now(),
-        daysRead: finishDate - startDate
+        // daysRead: daysReading
     }
 
     // Fetch and parse books array from localStorage 

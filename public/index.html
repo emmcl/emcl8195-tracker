@@ -41,7 +41,7 @@
         
         </div>
 
-    <!-- form to add books to the tracker -->
+    <!-- dialog box containing the form to add books to the tracker -->
         <dialog class="form-container" id="formModal">
 
             <!-- nav section to tell the user where they are up to -->
@@ -50,6 +50,8 @@
                 <span class="tab">2</span>
                 <span class="tab">3</span>
             </nav>
+
+            <!-- form contents -->
             
             <form id="addBookForm" action="#">
                 <div role="tab-list">
@@ -160,6 +162,36 @@
         </dialog>
 
 
+    <!-- form to add books to the tracker -->   
+        <dialog class="form-container" id="bookInfoModal">
+            <div>
+                <img id="more-info-cover"/>
+                <img id="more-info-rating"/>
+                <button class="btn" id="more-info-delete">DELETE</button>
+            </div>
+            <div>
+                <h2>Title:</h2>
+                <p id="more-info-title"></p>
+                <h2>Author:</h2>
+                <p id="more-info-author"></p>
+                <h2>Genre:</h2>
+                <p id="more-info-genre"></p>
+                <h2>Format:</h2>
+                <p id="more-info-format"></p>
+                <h2>Length:</h2>
+                <p id="more-info-length"></p>
+                <h2>Started:</h2>
+                <p id="more-info-started"></p>
+                <h2>Finished:</h2>
+                <p id="more-info-finished"></p>
+                <h2>Days Reading:</h2>
+                <p id="more-info-days"></p>
+                <h2>Review:</h2>
+                <p id="more-info-review"></p>
+                <h2>Tags:</h2>
+                <p id="more-info-tags"></p>
+            </div>
+        </dialog>
         <!-- wanted a h2 for accessibility but is not part of my initial design -->
         <h2 class="hide">MY BOOKS</h2>
         <div class="displayGrid">

@@ -10,7 +10,8 @@ h1{
 
 h2{
     font-family: 'Cairo', sans-serif;
-    color: #000000;
+    color: #FFFFFF;
+    font-size: 30px;
     text-align: center;
     margin: auto;
 }
@@ -68,12 +69,13 @@ p{
     align-items: center;
 }
 
-.displayCover {
-    width: 250;
+.displayBook {
+    width: 250px;
+    display: inline-block;
     padding: 0;
     margin: 0;
+    align-items: center;
   }
-
 
 .form-container{
     background-color:#D6748F;
@@ -88,14 +90,6 @@ p{
     top: 0;
     bottom: 0;
     border-radius: 50px; 
-}
-
-.addBookForm input{
-    font-family: "Mulish";
-    color: #000000;
-    border-color: #FFCFDD;
-    border-radius: 5px;
-    background-color: #FFFFFF;
 }
 
 .form-row > textarea{
@@ -120,13 +114,18 @@ p{
 
 .form-input {
     background-color: #FFFFFF;
+    font-family: "Mulish";
+    color: #000000;
+    border-color: 1px #A62848;
+    border-radius: 10px;
+
 }
 
 .form-row > label {
     width: 100px;
     font-family: "Cairo";
-    font-size: 15pt;
-    color: #FFFFFF;
+    font-size: 20pt;
+    color: #000000;
 }
 
 .form-row > input,
@@ -134,6 +133,8 @@ p{
     padding: 0.5em;
     flex-grow: 1;
 }
+
+
 
 input[type="date"] {
     font-family: "Mulish";
@@ -164,7 +165,7 @@ input[type="radio"] {
     --tag-border-radius: 5px;
     --tag-text-color--edit: #000000;
     --tag-remove-bg: var(--tag-hover);
-    --tag-inset-shadow-size: 1.35em;
+    /* --tag-inset-shadow-size: 1.35em; */
     --tag-remove-btn-bg--hover: #FFFFFF50;
     border: 1px solid var(--tags-border-color);
     }
@@ -172,11 +173,6 @@ input[type="radio"] {
 
 
 /* CSS from Multi Step Form page from Canvas */
-
-/* .btn:focus-within,
-.form-input:focus-within {
-  box-shadow: #f8fafc 0px 0px 0px 2px, #A62848 0px 0px 0px 2px, #0000 0px 1px 2px 0px;
-} */
 
 textarea.form-input {
   min-height: 100px;
@@ -189,6 +185,7 @@ textarea.form-input {
   border-radius: 10px;
   font-family: "Cairo";
   color: #FFFFFF;
+  font-size: 20px;
 }
 
 .btn[disabled] {

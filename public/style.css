@@ -84,8 +84,8 @@ p{
     background-color:#D6748F;
     border: 1px solid #000000;
     padding: 50px;
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
     position: absolute;
     margin: auto;
     left: 0;
@@ -112,8 +112,9 @@ textarea{
 /* https://coder-coder.com/display-divs-side-by-side/ */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 40px;
+
 }
 
 .column-display {
@@ -147,6 +148,8 @@ tr th td {
 th {
     font-family: "Cairo";
     font-size: 20pt;
+    padding: 0 20px 0 20px;
+    
 }
 
 .form-row > label {

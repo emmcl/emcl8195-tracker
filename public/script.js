@@ -78,7 +78,7 @@ function getStars (rating) {
 
 // setting modal to close on click outside of the form box
 // modal instructions from https://blog.webdevsimplified.com/2023-04/html-dialog/ via canvas 
-
+//for form modal 
 formModal.addEventListener("click", e => {
     const modalDimensions = formModal.getBoundingClientRect()
     if (
@@ -90,7 +90,7 @@ formModal.addEventListener("click", e => {
       formModal.close()
     }
   })
-
+//for info modal 
 bookInfoModal.addEventListener("click", e => {
     const modalDimensions = bookInfoModal.getBoundingClientRect()
     if (
@@ -161,14 +161,14 @@ function displayBooks() {
                 document.getElementById("more-info-modal-title").innerHTML = book.title;
                 document.getElementById("more-info-modal-cover").src = book.cover;
                 document.getElementById("more-info-modal-rating").src = getStars(book.rating);
-                document.getElementById("more-info-modal-delete")
-                document.getElementById("more-info-modal-author").textContent = book.author;
+                document.getElementById("more-info-modal-delete");
+                document.getElementById("more-info-modal-author").innerHTML = book.author;
                 document.getElementById("more-info-modal-genre").textContent = book.genre;
                 document.getElementById("more-info-modal-format").textContent = book.format;
                 document.getElementById("more-info-modal-length").textContent = book.length;
                 document.getElementById("more-info-modal-started").textContent = book.startDate;
                 document.getElementById("more-info-modal-finished").textContent = book.finishDate;
-                // document.getElementById("more-info- modal-days").textContent = book.daysRead;
+                document.getElementById("more-info-modal-days").textContent = book.daysRead;
                 document.getElementById("more-info-modal-length").textContent = book.length;
                 document.getElementById("more-info-modal-review").textContent = book.review;
                 document.getElementById("more-info-modal-tags").textContent = book.tags;
@@ -207,77 +207,69 @@ function displayBooks() {
 
     }
 
-    // if there is no books in local storage - an empty state message will appear to encourage the user to shelve a book 
-    else{
-      const emptyStateMessage = document.createElement("h2");
-      emptyStateMessage.textContent = 'Click "Add To Shelf" to Track Your Reading!';
-    }
+      // if there is no books in local storage - an empty state message will appear to encourage the user to shelve a book 
+      else{
+        const emptyStateMessage = document.createElement("div");
+        emptyStateMessage.textContent = 'Click "Add To Shelf" to Track Your Reading!';
+      }
 
 }
 
 
-// Create a function called 'addBook'
-// Give the function input parameters for: name, type, rate, time, client
-// Paste your object definition from above in the function
-// Replace the property values with the input paramaters
-// Add the object to the bookList array
+//add a book, with the paramters entered by the user and add the book to the bookList array 
+function addBook(cover, title, author, genre, format, length, startDate, finishDate, rating, review, tags){ 
 
-function addBook(cover, title, author, genre, format, length, startDate, finishDate, rating, review, tags) {
 
-    // To calculate the time difference of two dates
-    // via https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
-    // var timeReading = finishDate.getTime() - startDate.getTime();
-    // console.log(timeReading);
-    // var daysReading = timeReading / (1000 * 3600 * 24);
-    // console.log(daysReading);
+  //determine the days it took to read the book based on the two dates entered by the user 
+  //utilised the method from https://stackoverflow.com/questions/3224834/get-difference-between-2-dates-in-javascript
+  //adding one to the total days to include both the day you started and the day you finished 
+  var start = new Date(startDate);
+  var finish = new Date(finishDate);
+  var timeReading = Math.abs(finish - start);
+  var daysReading = Math.ceil(timeReading / (1000 * 60 * 60 * 24)) + 1; 
+  
 
-    // Creating the object, directly passing in the input parameters
-    let book = {
-        cover,
-        title,
-        author,
-        genre,
-        format, 
-        length, 
-        startDate,
-        finishDate,
-        rating,
-        review,
-        tags,
-        id: Date.now(),
-        // daysRead: daysReading
-    }
+  // Creating the object, directly passing in the input parameters
+  let book = {
+      cover,
+      title,
+      author,
+      genre,
+      format, 
+      length, 
+      startDate,
+      finishDate,
+      rating,
+      review,
+      tags,
+      id: Date.now(),
+      daysRead: daysReading
+  }
 
-    // Fetch and parse books array from localStorage 
-    let localBooks = JSON.parse(localStorage.getItem('books'))
+  // Fetch and parse books array from localStorage 
+  let localBooks = JSON.parse(localStorage.getItem('books'))
 
-    // If no books exist in local storage, create a new array using the current book
-    if (localBooks == null) {
-        localBooks = [book]
-    } else {
-        // Otherwise check to see if a book with the same ID already exists (just in case)
-        if (localBooks.find(element => element.id === book.id)) {
-            console.log('Book already exists')
-        } else {
-            // If not, push the new book to the array
-            // instead of pushing to the end of the array - unshifts to the beginning of the list to display the most recent book first
-            localBooks.unshift(book);
-        }
-    }
+  // If no books exist in local storage, create a new array using the current book
+  if (localBooks == null) {
+      localBooks = [book]
+  } else {
+      // Otherwise check to see if a book with the same ID already exists (just in case)
+      if (localBooks.find(element => element.id === book.id)) {
+          console.log('Book already exists')
+      } else {
+          // If not, push the new book to the array
+          // instead of pushing to the end of the array - unshifts to the beginning of the list to display the most recent book first
+          localBooks.unshift(book);
+      }
+  }
 
-    // Update localStorage with the array (converted to a JSON string)
-    localStorage.setItem('books', JSON.stringify(localBooks))
+  // Update localStorage with the array (converted to a JSON string)
+  localStorage.setItem('books', JSON.stringify(localBooks))
 
-    // Call function to display the books on the DOM
-    displayBooks();
+  // Call function to display the books on the DOM
+  displayBooks();
 
 }
-
-// Call the function with test values for the input paramaters
-// addBook();
-
-
-
 
 // javascript for multi step form page on canvas - 
 // "Code taken from https://webdesign.tutsplus.com/tutorials/how-to-build-a-multi-step-form-wizard-with-javascript--cms-93342"

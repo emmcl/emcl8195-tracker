@@ -139,27 +139,28 @@ imgInput.addEventListener("change", function (event) {
 // General function for fetching tasks from localStorage and rendering to screen
 function displayBooks() {
 
+
+
     // Clear the booklist <ul> element's content
     booklist.innerHTML = ""
 
     // Fetch and parse tasks array from localStorage
     let localBooks = JSON.parse(localStorage.getItem('books'))
 
-    // If there are tasks (localStorage item exists)
+    // If there are books in localStorage
     if (localBooks !== null) {
-
         // Loop through all tasks in the array
         localBooks.forEach(function (book) {
-
             // Create new list item and populate with content (including data attribute for ID)
             let item = document.createElement("li");
             item.setAttribute("data-id", book.id);
-            item.innerHTML = `<div class="displayBook"><img src="${book.cover}" alt="${book.title} by ${book.author}"/><br><img src="${getStars(book.rating)}"/></div>`;
+            item.innerHTML = `<div><img src="${book.cover}" class="displayBook" alt="${book.title} by ${book.author}"/><br><img src="${getStars(book.rating)}"class="displayBook"/></div>`;
             
             item.addEventListener("click", function (event) {
                 event.preventDefault();
                 document.getElementById("more-info-modal-title").innerHTML = book.title;
                 document.getElementById("more-info-modal-cover").src = book.cover;
+                document.getElementById("more-info-modal-rating").src = getStars(book.rating);
                 document.getElementById("more-info-modal-delete")
                 document.getElementById("more-info-modal-author").textContent = book.author;
                 document.getElementById("more-info-modal-genre").textContent = book.genre;
@@ -204,6 +205,12 @@ function displayBooks() {
             // })
         })
 
+    }
+
+    // if there is no books in local storage - an empty state message will appear to encourage the user to shelve a book 
+    else{
+      const emptyStateMessage = document.createElement("h2");
+      emptyStateMessage.textContent = 'Click "Add To Shelf" to Track Your Reading!';
     }
 
 }
@@ -253,7 +260,8 @@ function addBook(cover, title, author, genre, format, length, startDate, finishD
             console.log('Book already exists')
         } else {
             // If not, push the new book to the array
-            localBooks.push(book);
+            // instead of pushing to the end of the array - unshifts to the beginning of the list to display the most recent book first
+            localBooks.unshift(book);
         }
     }
 

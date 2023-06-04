@@ -162,35 +162,37 @@
         </dialog>
 
     <!-- form to add books to the tracker -->   
-        <dialog class="grid-container" id="bookInfoModal">
-            <div>
-                <img id="more-info-modal-cover" class="displayBook"/>
-                <img id="more-info-modal-rating" class="displayBook"/>
-                <button class="btn" id="more-info-modal-delete">DELETE</button>
-            </div>
-            <div>
-                <table>
-                    <tr><th>Title:</th>
-                        <td><p id="more-info-modal-title"></p></td></tr>   
-                    <tr><th>Author:</th>
-                    <td><p id="more-info-modal-author"></td></tr>
-                    <tr><th>Genre:</th>
-                    <td><p id="more-info-modal-genre"></td></tr>
-                    <tr><th>Format:</th>
-                    <td><p id="more-info-modal-format"></td></tr>
-                    <tr><th>Length:</th>
-                    <td><p id="more-info-modal-length"></td></tr>
-                    <tr><th>Started:</th>
-                    <td><p id="more-info-modal-started"></td></tr>
-                    <tr><th>Finished:</th>
-                    <td><p id="more-info-modal-finished"></td></tr>
-                    <tr><th>Days Reading:</th>
-                    <td id="more-info-modal-days"></td></tr>
-                    <tr><th>Review:</th>
-                    <td><p id="more-info-modal-review"></td></tr>
-                    <tr><th>Tags:</th>
-                    <td><p id="more-info-modal-tags"></td></tr>
-                </table>
+        <dialog id="bookInfoModal">
+            <div class="grid-container">
+                <div class="column-display">
+                    <img id="more-info-modal-cover" class="displayBook"/>
+                    <img id="more-info-modal-rating" class="displayBook"/>
+                    <button class="btn" id="more-info-modal-delete">DELETE</button>
+                </div>
+                <div>
+                    <table>
+                        <tr><th>Title:</th>
+                            <td><p id="more-info-modal-title"></p></td></tr>   
+                        <tr><th>Author:</th>
+                        <td><p id="more-info-modal-author"></td></tr>
+                        <tr><th>Genre:</th>
+                        <td><p id="more-info-modal-genre"></td></tr>
+                        <tr><th>Format:</th>
+                        <td><p id="more-info-modal-format"></td></tr>
+                        <tr><th>Length:</th>
+                        <td><p id="more-info-modal-length"></td></tr>
+                        <tr><th>Started:</th>
+                        <td><p id="more-info-modal-started"></td></tr>
+                        <tr><th>Finished:</th>
+                        <td><p id="more-info-modal-finished"></td></tr>
+                        <tr><th>Days Reading:</th>
+                        <td id="more-info-modal-days"></td></tr>
+                        <tr><th>Review:</th>
+                        <td><p id="more-info-modal-review"></td></tr>
+                        <tr><th>Tags:</th>
+                        <td><p id="more-info-modal-tags"></td></tr>
+                    </table>
+                </div>
             </div>
         </dialog>
         <!-- wanted a h2 for accessibility but is not part of my initial design -->

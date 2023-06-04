@@ -121,6 +121,10 @@ p{
 
 }
 
+tr{
+    display: table-row;
+}
+
 .form-row > label {
     width: 100px;
     font-family: "Cairo";

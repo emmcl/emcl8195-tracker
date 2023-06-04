@@ -158,18 +158,19 @@ function displayBooks() {
             
             item.addEventListener("click", function (event) {
                 event.preventDefault();
-                document.getElementById('more-info-modal-title').textContent = book.title;
-                document.getElementById('more-info-modal-cover').src = book.cover;
-                document.getElementById('more-info-modal-author').textContent = book.author;
-                document.getElementById('more-info-modal-genre').textContent = book.genre;
-                document.getElementById('more-info-modal-format').textContent = book.format;
-                document.getElementById('more-info-modal-length').textContent = book.length;
-                document.getElementById('more-info-modal-started').textContent = book.startDate;
-                document.getElementById('more-info-modal-finished').textContent = book.finishDate;
-                // document.getElementById('more-info- modal-days').textContent = book.daysRead;
-                document.getElementById('more-info-modal-length').textContent = book.length;
-                document.getElementById('more-info-modal-review').textContent = book.review;
-                document.getElementById('more-info-modal-tags').textContent = book.tags;
+                document.getElementById("more-info-modal-title").innerHTML = book.title;
+                document.getElementById("more-info-modal-cover").src = book.cover;
+                document.getElementById("more-info-modal-delete")
+                document.getElementById("more-info-modal-author").textContent = book.author;
+                document.getElementById("more-info-modal-genre").textContent = book.genre;
+                document.getElementById("more-info-modal-format").textContent = book.format;
+                document.getElementById("more-info-modal-length").textContent = book.length;
+                document.getElementById("more-info-modal-started").textContent = book.startDate;
+                document.getElementById("more-info-modal-finished").textContent = book.finishDate;
+                // document.getElementById("more-info- modal-days").textContent = book.daysRead;
+                document.getElementById("more-info-modal-length").textContent = book.length;
+                document.getElementById("more-info-modal-review").textContent = book.review;
+                document.getElementById("more-info-modal-tags").textContent = book.tags;
                 bookInfoModal.showModal();
             });
             

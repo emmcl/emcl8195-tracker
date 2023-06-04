@@ -80,16 +80,16 @@
                             <label for="bookGenre">Genre:</label> 
                             <select id="bookGenre" class="form-input" name="bookGenre" required="true">
                                 <option selected disabled>Select a Genre</option>
-                                <option value="classics">Classics</option>
-                                <option value="crimeAndMystery">Crime & Mystery</option>
-                                <option value="fantasy">Fantasy</option>
-                                <option value="generalFiction">General Fiction</option>
-                                <option value="graphicNovels">Graphic Novels</option>
-                                <option value="historical">Historical</option>
-                                <option value="horror">Horror</option>
-                                <option value="romance">Romance</option>
-                                <option value="scifi">SciFi</option>
-                                <option value="youngAdult">Young Adult</option>
+                                <option value="Classics">Classics</option>
+                                <option value="Crime and Mystery">Crime & Mystery</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="General Fiction">General Fiction</option>
+                                <option value="Graphic Novels">Graphic Novels</option>
+                                <option value="Historical">Historical</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Romance">Romance</option>
+                                <option value="SciFi">Science Fiction</option>
+                                <option value="Young Adult">Young Adult</option>
                             </select><br>
                         </div>
 
@@ -102,9 +102,9 @@
                             <label for="bookFormat">Format:</label> 
                             <select id="bookFormat" class="form-input" name="bookFormat" required="true">
                                 <option selected disabled>Select a Format</option>
-                                <option value="physical">Physical</option>
-                                <option value="digital">Digital</option>
-                                <option value="audio">Audio</option>
+                                <option value="Physical">Physical</option>
+                                <option value="Digital">Digital</option>
+                                <option value="Audio">Audio</option>
                             </select><br>
                         </div>
 
@@ -167,30 +167,30 @@
             <div>
                 <img id="more-info-modal-cover"/>
                 <img id="more-info-modal-rating"/>
-                <button class="btn" id="more-info-delete">DELETE</button>
+                <button class="btn" id="more-info-modal-delete">DELETE</button>
             </div>
-            <div>
-                <h2>Title:</h2>
-                <p id="more-info-modal-title"></p>
-                <h2>Author:</h2>
-                <p id="more-info-modal-author"></p>
-                <h2>Genre:</h2>
-                <p id="more-info-modal-genre"></p>
-                <h2>Format:</h2>
-                <p id="more-info-modal-format"></p>
-                <h2>Length:</h2>
-                <p id="more-info-modal-length"></p>
-                <h2>Started:</h2>
-                <p id="more-info-modal-started"></p>
-                <h2>Finished:</h2>
-                <p id="more-info-modal-finished"></p>
-                <h2>Days Reading:</h2>
-                <p id="more-info-modal-days"></p>
-                <h2>Review:</h2>
-                <p id="more-info-modal-review"></p>
-                <h2>Tags:</h2>
-                <p id="more-info-modal-tags"></p>
-            </div>
+            <table>
+                <tr><th>Title:</th>
+                    <td><p id="more-info-modal-title"></p></td></tr>   
+                <tr><th>Author:</th>
+                <td><p id="more-info-modal-author"></td></tr>
+                <tr><th>Genre:</th>
+                <td><p id="more-info-modal-genre"></td></tr>
+                <tr><th>Format:</th>
+                <td><p id="more-info-modal-format"></td></tr>
+                <tr><th>Length:</th>
+                <td><p id="more-info-modal-length"></td></tr>
+                <tr><th>Started:</th>
+                <td><p id="more-info-modal-started"></td></tr>
+                <tr><th>Finished:</th>
+                <td><p id="more-info-modal-finished"></td></tr>
+                <!-- <tr><th>Days Reading:</th>
+                <td id="more-info-modal-days"></td></tr> -->
+                <tr><th>Review:</th>
+                <td><p id="more-info-modal-review"></td></tr>
+                <tr><th>Tags:</th>
+                <td><p id="more-info-modal-tags"></td></tr>
+            </table>
         </dialog>
         <!-- wanted a h2 for accessibility but is not part of my initial design -->
         <h2 class="hide">MY BOOKS</h2>

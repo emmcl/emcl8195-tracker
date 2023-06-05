@@ -13,6 +13,7 @@ const bookInfoModal = document.getElementById("bookInfoModal");
 const addButton = document.getElementById("addToShelfButton");
 var selectedImageBase64 = "";
 const closeInfoModalButton = document.getElementById("closeInfoModal");
+const closeFormModalButton = document.getElementById("closeFormModal");
 const listDiv = document.getElementById("listDiv");
 const emptyStateMessage = document.createElement("div");
 const delButton = document.getElementById("more-info-modal-delete");
@@ -114,6 +115,10 @@ bookInfoModal.addEventListener("click", e => {
 closeInfoModalButton.addEventListener("click", function(){
   bookInfoModal.close();
 })  
+
+closeFormModalButton.addEventListener("click", function(){
+  formModal.close();
+})
 
 
 

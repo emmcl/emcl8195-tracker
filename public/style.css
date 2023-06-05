@@ -211,6 +211,11 @@ input[type="file"] {
     background: none;
 }
 
+.spaceBetween{
+    justify-content: space-between;
+    display: flex;
+}
+
 .close {
     align-items: end;
     font-size: 45px;
@@ -218,7 +223,9 @@ input[type="file"] {
     cursor: pointer;
   }
 
-
+#more-info-modal-delete {
+    cursor: pointer;
+}
 
 /* Utilising the Canvas instructions and additional instructions from https://yaireo.github.io/tagify/ */
 .tagify {
@@ -292,7 +299,7 @@ dialog::backdrop{
 .tab-status {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .tab-status span {

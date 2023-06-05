@@ -14,6 +14,8 @@ const addButton = document.getElementById("addToShelfButton");
 var selectedImageBase64 = "";
 const closeInfoModalButton = document.getElementById("closeInfoModal");
 const listDiv = document.getElementById("listDiv");
+const emptyStateMessage = document.createElement("div");
+const delButton = document.getElementById("more-info-modal-delete");
 
 //run display books on each load - not just after submission of form
 displayBooks();
@@ -151,9 +153,6 @@ imgInput.addEventListener("change", function (event) {
 
 // General function for fetching tasks from localStorage and rendering to screen
 function displayBooks() {
-
-
-
     // Clear the booklist <ul> element's content
     booklist.innerHTML = ""
 
@@ -162,70 +161,89 @@ function displayBooks() {
 
     // If there are books in localStorage
     if (localBooks !== null) {
-        // Loop through all tasks in the array
-        localBooks.forEach(function (book) {
-            // Create new list item and populate with content (including data attribute for ID)
-            let item = document.createElement("li");
-            item.setAttribute("data-id", book.id);
-            item.innerHTML = `<img src="${book.cover}" class="displayBook" alt="${book.title} by ${book.author}"/><br><img src="${getStars(book.rating)}"class="displayBook"/>`;
-            
-            item.addEventListener("click", function (event) {
-                event.preventDefault();
-                document.getElementById("more-info-modal-title").innerHTML = book.title;
-                document.getElementById("more-info-modal-cover").src = book.cover;
-                document.getElementById("more-info-modal-rating").src = getStars(book.rating);
-                document.getElementById("more-info-modal-delete");
-                document.getElementById("more-info-modal-author").innerHTML = book.author
-                document.getElementById("more-info-modal-genre").textContent = book.genre;
-                document.getElementById("more-info-modal-format").textContent = book.format;
-                document.getElementById("more-info-modal-length").textContent = book.length;
-                document.getElementById("more-info-modal-started").textContent = book.startDate;
-                document.getElementById("more-info-modal-finished").textContent = book.finishDate;
-                document.getElementById("more-info-modal-days").textContent = book.daysRead;
-                document.getElementById("more-info-modal-review").textContent = `"${book.review};"` //display review in quotation marks
-                document.getElementById("more-info-modal-tags").textContent = book.tags;
-                bookInfoModal.showModal();
-            });
-            
-            booklist.appendChild(item);
+      emptyStateMessage.className = "hide";
+      // Loop through all tasks in the array
+      localBooks.forEach(function (book) {
+          // Create new list item and populate with content (including data attribute for ID)
+          let item = document.createElement("li");
+          item.setAttribute("data-id", book.id);
+          item.innerHTML = `<img src="${book.cover}" class="displayBook" alt="${book.title} by ${book.author}"/><br><img src="${getStars(book.rating)}"class="displayBook"/>`;
+          
+          item.addEventListener("click", function (event) {
+              event.preventDefault();
+              document.getElementById("more-info-modal-title").innerHTML = book.title;
+              document.getElementById("more-info-modal-cover").src = book.cover;
+              document.getElementById("more-info-modal-rating").src = getStars(book.rating);
+              document.getElementById("more-info-modal-author").innerHTML = book.author
+              document.getElementById("more-info-modal-genre").textContent = book.genre;
+              document.getElementById("more-info-modal-format").textContent = book.format;
+              document.getElementById("more-info-modal-length").textContent = book.length;
+              document.getElementById("more-info-modal-started").textContent = book.startDate;
+              document.getElementById("more-info-modal-finished").textContent = book.finishDate;
+              document.getElementById("more-info-modal-days").textContent = book.daysRead;
+              document.getElementById("more-info-modal-review").textContent = `"${book.review};"` //display review in quotation marks
+              document.getElementById("more-info-modal-tags").textContent = book.tags;
 
-            // Clear the value of the input once the task has been added to the page
-            form.reset();
+              // Configure delete button
+              delButton.addEventListener("click", function () {
 
-            // // Setup delete button DOM elements
-            // let delButton = document.createElement("button");
-            // let delButtonText = document.createTextNode("Delete");
-            // delButton.appendChild(delButtonText);
-            // item.appendChild(delButton); // Adds a delete button to every task
+                // Loop through all the tasks to find the matching ID and remove it from the array
+                localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
+                    if (bookArrayElement.id == item.getAttribute('data-id')) {
+                        localBooks.splice(bookArrayIndex, 1)
+                    }
+                })
 
-            // Listen for when the delete button is clicked
-            // delButton.addEventListener("click", function () {
+                // Update localStorage with the newly spliced array (converted to a JSON string)
+                localStorage.setItem('books', JSON.stringify(localBooks))
 
-            //     // Loop through all the tasks to find the matching ID and remove it from the array
-            //     localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
-            //         if (bookArrayElement.id == item.getAttribute('data-id')) {
-            //             localBooks.splice(bookArrayIndex, 1)
-            //         }
-            //     })
+                item.remove(); // Remove the task item from the page when button clicked
+                // Because we used 'let' to define the item, this will always delete the right element
 
-            //     // Update localStorage with the newly spliced array (converted to a JSON string)
-            //     localStorage.setItem('books', JSON.stringify(localBooks))
+                bookInfoModal.close();
+              });
 
-            //     item.remove(); // Remove the task item from the page when button clicked
-            //     // Because we used 'let' to define the item, this will always delete the right element
+              bookInfoModal.showModal();
+          });
+          
+          booklist.appendChild(item);
 
-            // })
-        })
+          // Clear the value of the input once the task has been added to the page
+          form.reset();
 
+          // // Setup delete button DOM elements
+          // let delButton = document.createElement("button");
+          // let delButtonText = document.createTextNode("Delete");
+          // delButton.appendChild(delButtonText);
+          // item.appendChild(delButton); // Adds a delete button to every task
+
+          // Listen for when the delete button is clicked
+          // delButton.addEventListener("click", function () {
+
+          //     // Loop through all the tasks to find the matching ID and remove it from the array
+          //     localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
+          //         if (bookArrayElement.id == item.getAttribute('data-id')) {
+          //             localBooks.splice(bookArrayIndex, 1)
+          //         }
+          //     })
+
+          //     // Update localStorage with the newly spliced array (converted to a JSON string)
+          //     localStorage.setItem('books', JSON.stringify(localBooks))
+
+          //     item.remove(); // Remove the task item from the page when button clicked
+          //     // Because we used 'let' to define the item, this will always delete the right element
+
+          // })
+      })
+
+  }
+
+    // if there is no books in local storage - an empty state message will appear to encourage the user to shelve a book 
+    else{
+      emptyStateMessage.className = "emptyState";
+      emptyStateMessage.textContent = 'Click "Add To Shelf" to Track Your Reading!';
+      listDiv.after(emptyStateMessage, booklist);
     }
-
-      // if there is no books in local storage - an empty state message will appear to encourage the user to shelve a book 
-      else{
-        const emptyStateMessage = document.createElement("div");
-        emptyStateMessage.className = "emptyState";
-        emptyStateMessage.textContent = 'Click "Add To Shelf" to Track Your Reading!';
-        listDiv.after(emptyStateMessage, booklist);
-      }
 
 }
 

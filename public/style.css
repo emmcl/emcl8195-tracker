@@ -25,7 +25,7 @@ p{
 th {
     font-family: "Cairo";
     font-size: 20pt;
-    /* text-overflow: no-wrap; */
+    text-overflow: no-wrap;
     text-align: start;
     padding: 0 30px 0 30px;
 }

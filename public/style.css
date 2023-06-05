@@ -58,8 +58,8 @@ p{
 }
 .addToShelf:hover {
     box-shadow: 10px 5px 5px #FFCFDD, 0 17px 50px 0 #FFCFDD;
+    cursor: pointer;
   }
-
 
 #bookList {
     list-style-type: none;
@@ -77,8 +77,19 @@ p{
     padding: 0;
     margin: 10px;
     align-items: center;
-    
-  }
+    cursor: pointer;
+}
+
+.modalBook {
+    width: 300px;
+    display: inline-block;
+    padding: 0;
+    margin: 10px;
+    align-items: center;
+    cursor: auto;
+}
+
+
 
 .form-container{
     background-color:#D6748F;
@@ -165,8 +176,6 @@ th {
     flex-grow: 1;
 }
 
-
-
 input[type="date"] {
     font-family: "Mulish";
 }
@@ -179,12 +188,21 @@ input[type="file"] {
     background: none;
 }
 
+.close {
+    align-items: right;
+    font-size: 45px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+
+
+/* Utilising the Canvas instructions and additional instructions from https://yaireo.github.io/tagify/ */
 .tagify {
     padding: 0.5em;
     flex-grow: 1;
 }
 
-/* Utilising the Canvas instructions and additional instructions from https://yaireo.github.io/tagify/ */
 .form-row .tagify__tag{
     font-family: "Mulish";
     font-size: 12pt;
@@ -204,7 +222,6 @@ input[type="file"] {
     border: 1px solid var(--tags-border-color);
     }
     
-
 
 /* CSS from Multi Step Form page from Canvas */
 
@@ -278,11 +295,6 @@ dialog::backdrop{
 .hidden {
   display: none;
 }
-
-
-
-
-
 
 /* book opening animation - from https://codepen.io/valerite-dev/pen/XjOeeK */
 
@@ -382,22 +394,22 @@ dialog::backdrop{
       z-index: 999;}
   }
 
-
-
-
-
   /* Media query for smaller devices */
 @media screen and (max-width: 700px){
 
     h1 {
-        font-size: 30pt;
+        /* font-size: 30pt; */
+        width: 80%;
     }
 
     .addToShelf{
         font-size: 20pt;
-        /* padding: 5px 20px;
-        margin: 70px auto;
-        border-radius: 8px;
-        border: 1px #D6748F; */
+
+    }
+
+    .book {
+        display: none;
     }
 }
+
+

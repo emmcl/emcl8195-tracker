@@ -12,6 +12,7 @@ const formModal = document.getElementById("formModal");
 const bookInfoModal = document.getElementById("bookInfoModal");
 const addButton = document.getElementById("addToShelfButton");
 var selectedImageBase64 = ""
+const closeInfoModalButton = document.getElementById("closeInfoModal");
 
 //run display books on each load - not just after submission of form
 displayBooks();
@@ -90,6 +91,10 @@ formModal.addEventListener("click", e => {
       formModal.close()
     }
   })
+
+
+
+
 //for info modal 
 bookInfoModal.addEventListener("click", e => {
     const modalDimensions = bookInfoModal.getBoundingClientRect()
@@ -99,9 +104,16 @@ bookInfoModal.addEventListener("click", e => {
       e.clientY < modalDimensions.top ||
       e.clientY > modalDimensions.bottom
     ) {
-      bookInfoModal.close()
+      bookInfoModal.close();
     }
   })
+
+closeInfoModalButton.addEventListener("click", function(){
+  bookInfoModal.close();
+})  
+
+
+
 
 // handling user uploaded images
 

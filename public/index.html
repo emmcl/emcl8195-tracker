@@ -171,10 +171,9 @@
                 </div>
                 <div>
                     <table>
-                        <span id="closeInfoModal" class="close">&times;</span>
                         <tr>
                             <th>Title:</th>
-                            <td><p id="more-info-modal-title"></p></td>
+                            <td class="top-row"><p id="more-info-modal-title"></p> <span id="closeInfoModal" class="close">&times;</span></td>
                         </tr>   
                         <tr>
                             <th>Author:</th>
@@ -198,11 +197,11 @@
                         </tr>
                         <tr>
                             <th>Finished:</th>
-                            <td><p id="more-info-modal-finished"></td>
+                            <td><p id="more-info-modal-finished"></p></td>
                         </tr>
                         <tr>
                             <th>Days Reading:</th>
-                            <td id="more-info-modal-days"></td>
+                            <td><p id="more-info-modal-days"></p></td>
                         </tr>
                         <tr>
                             <th>Review:</th>
@@ -216,9 +215,9 @@
                 </div>
             </div>
         </dialog>
-        <!-- wanted a h2 for accessibility but is not part of my initial design -->
+        <!-- wanted a h2 for accessibility but is not part of my design -->
         <h2 class="hide">MY BOOKS</h2>
-        <div class="displayGrid">
+        <div class="displayGrid" id="listDiv">
             <ul id="bookList"></ul>
         </div>
     </main>

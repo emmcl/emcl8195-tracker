@@ -11,8 +11,9 @@ const booklist = document.getElementById("bookList");
 const formModal = document.getElementById("formModal");
 const bookInfoModal = document.getElementById("bookInfoModal");
 const addButton = document.getElementById("addToShelfButton");
-var selectedImageBase64 = ""
+var selectedImageBase64 = "";
 const closeInfoModalButton = document.getElementById("closeInfoModal");
+const listDiv = document.getElementById("listDiv");
 
 //run display books on each load - not just after submission of form
 displayBooks();
@@ -221,7 +222,9 @@ function displayBooks() {
       // if there is no books in local storage - an empty state message will appear to encourage the user to shelve a book 
       else{
         const emptyStateMessage = document.createElement("div");
+        emptyStateMessage.className = "emptyState";
         emptyStateMessage.textContent = 'Click "Add To Shelf" to Track Your Reading!';
+        listDiv.after(emptyStateMessage, booklist);
       }
 
 }

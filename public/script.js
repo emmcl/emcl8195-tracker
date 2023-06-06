@@ -187,10 +187,23 @@ function displayBooks() {
               document.getElementById("more-info-modal-days").textContent = book.daysRead;
               document.getElementById("more-info-modal-review").textContent = `"${book.review}"` //display review in quotation marks
               
-
-
+              // Make the list
+              let tags = book.tags;
+              let tagList = document.getElementById("more-info-modal-tags");
+              tagList.innerHTML = "";
+              // Make the list item
+              let li = document.createElement('li');
+              // document.querySelector('#more-info-modal-tags').appendChild(li);
+              tags.forEach((item) => {
+                  // Add the item text
+                  li.innerHTML += item;
+                  // Add li to the ul
+                  tagList.appendChild(li);
+                  // Reset the list item
+                  li = document.createElement('li');
+              });
               
-              document.getElementById("more-info-modal-tags").textContent = book.tags;
+              // document.getElementById("more-info-modal-tags").textContent = book.tags;
 
               // Configure delete button
               delButton.addEventListener("click", function () {

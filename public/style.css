@@ -4,11 +4,14 @@ body {
 
 h1{
     font-family: 'Passion One', sans-serif;
-    font-size: 160px;
+    font-size: 5rem;
     color: #FFFFFF;
+    /* white-space: nowrap; */
+    text-align: center;
+    margin: 30px 0 10 0;
 }
 
-h2{
+h2, th {
     font-family: 'Cairo', sans-serif;
     color: #FFFFFF;
     font-size: 30pt;
@@ -27,7 +30,14 @@ th {
     font-size: 20pt;
     text-overflow: no-wrap;
     text-align: start;
-    padding: 0 30px 0 30px;
+    padding: 0 30px;
+
+}
+
+tr th td {
+    display: table-row;
+    text-align: left;
+    vertical-align: top; 
 }
 
 /* multi-use for hiding elements in javascript and html */
@@ -49,19 +59,14 @@ th {
     position: absolute;
     z-index: -1;
 }
-.hero-image-text{
-    white-space: nowrap;
-    text-align: center;
-    margin: 30px 0 10 0;
-}
 
 .addToShelf{
     background-color: #A62848;
     color:#FFCFDD;
     font-family: "Cairo";
-    font-size: 40pt;
+    font-size: 3rem;
     padding: 5px 20px;
-    margin: 70px auto;
+    margin: 6rem auto;
     border-radius: 8px;
     border: 1px #D6748F;
 }
@@ -82,7 +87,6 @@ th {
 
 .displayBook {
     width: 250px;
-    /* display: inline-block; */
     padding: 0;
     margin: 10px;
     align-items: center;
@@ -101,7 +105,7 @@ th {
   }
 
 .modalBook {
-    width: 300px;
+    width: 25rem;
     display: inline-block;
     padding: 0;
     margin: 10px;
@@ -183,11 +187,7 @@ textarea{
     transform: translate(-50%, 700%);
 }
 
-tr th td {
-    display: table-row;
-    text-align: left;
-    vertical-align: top; 
-}
+
 
 
 .form-row > label {
@@ -213,6 +213,8 @@ input[type="radio"] {
 
 input[type="file"] {
     background: none;
+    flex-grow: 1;
+    width: 40%;
 }
 
 .spaceBetween{
@@ -428,12 +430,25 @@ dialog::backdrop{
       z-index: 999;}
   }
 
+
+
+
+
+
+  
   /* Media query for smaller devices */
 @media screen and (max-width: 700px){
 
     h1 {
         /* font-size: 30pt; */
         width: 80%;
+    }
+
+    h2 {
+        font-size: 20pt; 
+    } 
+    th {
+        font-size: 15pt;
     }
 
     .addToShelf{
@@ -444,6 +459,28 @@ dialog::backdrop{
     .book {
         display: none;
     }
+
+    .form-container {
+        padding: 40px 30px;
+        margin: 70px auto;
+    }
+
+    .form-row > label {
+        font-size: 15pt;
+    }
+
+    textarea{
+        width: 70%;
+        padding: 12px 10px;
+        margin: 5px;
+        box-sizing: border-box;
+        border: 2px solid #A62848;
+        background-color: #FFFFFF;
+        font-family: "Mulish";
+        font-size: 12pt;
+        resize: none;
+    }
+
 }
 
 

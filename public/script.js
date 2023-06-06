@@ -183,9 +183,13 @@ function displayBooks() {
               document.getElementById("more-info-modal-genre").textContent = book.genre;
               document.getElementById("more-info-modal-format").textContent = book.format;
               document.getElementById("more-info-modal-length").textContent = book.length;
-              document.getElementById("more-info-modal-dates").textContent = `${book.startDate} - ${book.finishDate}` //display dates as a range instead of two lines
+              document.getElementById("more-info-modal-dates").textContent = `${book.startDate} to ${book.finishDate}` //display dates as a range instead of two lines
               document.getElementById("more-info-modal-days").textContent = book.daysRead;
               document.getElementById("more-info-modal-review").textContent = `"${book.review}"` //display review in quotation marks
+              
+
+
+              
               document.getElementById("more-info-modal-tags").textContent = book.tags;
 
               // Configure delete button

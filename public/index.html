@@ -19,7 +19,7 @@
     <main class="content">
         <div class="hero-image-container">
             
-            <h1 class="hero-image-text">BOOK TRACKER</h1>
+            <h1>BOOK TRACKER</h1>
 
             <div class="book">
                 <span class="page turn"></span>
@@ -117,11 +117,11 @@
                         </div>
 
                         <div class="form-row">
-                            <label for="bookStartDate">Start Date:</label>
+                            <label for="bookStartDate">Start:</label>
                             <input type="date" class="form-input" id="bookStartDate" name="bookStartDate" required="true" min="2023-01-01" max="2023-12-31"><br>
                         </div>
                         <div class="form-row">
-                            <label for="bookFinishDate">Finish Date:</label>
+                            <label for="bookFinishDate">Finish:</label>
                             <input type="date" class="form-input" id="bookFinishDate" name="bookFinishDate" required="true" min="2023-01-01" max="2023-12-31"><br>
                         </div>
                     </section>
@@ -164,7 +164,7 @@
             </form>
         </dialog>
 
-    <!-- form to add books to the tracker -->   
+    <!-- modal with each books data -->   
         <dialog id="bookInfoModal" class = form-container>
             <div class="table-container">
                 <div class="column-display">
@@ -206,11 +206,11 @@
                         </tr>
                         <tr>
                             <th>Review:</th>
-                            <td><p id="more-info-modal-review"></td>
+                            <td><p id="more-info-modal-review"></p></td>
                         </tr>
                         <tr>
                             <th>Tags:</th>
-                            <td><p id="more-info-modal-tags"></td>
+                            <td><ul id="more-info-modal-tags"></ul></td>
                         </tr>
                     </table>
                 </div>

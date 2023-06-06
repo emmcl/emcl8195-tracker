@@ -183,10 +183,9 @@ function displayBooks() {
               document.getElementById("more-info-modal-genre").textContent = book.genre;
               document.getElementById("more-info-modal-format").textContent = book.format;
               document.getElementById("more-info-modal-length").textContent = book.length;
-              document.getElementById("more-info-modal-started").textContent = book.startDate;
-              document.getElementById("more-info-modal-finished").textContent = book.finishDate;
+              document.getElementById("more-info-modal-dates").textContent = `${book.startDate} - ${book.finishDate}` //display dates as a range instead of two lines
               document.getElementById("more-info-modal-days").textContent = book.daysRead;
-              document.getElementById("more-info-modal-review").textContent = `"${book.review};"` //display review in quotation marks
+              document.getElementById("more-info-modal-review").textContent = `"${book.review}"` //display review in quotation marks
               document.getElementById("more-info-modal-tags").textContent = book.tags;
 
               // Configure delete button
@@ -215,30 +214,6 @@ function displayBooks() {
 
           // Clear the value of the input once the task has been added to the page
           form.reset();
-
-          // // Setup delete button DOM elements
-          // let delButton = document.createElement("button");
-          // let delButtonText = document.createTextNode("Delete");
-          // delButton.appendChild(delButtonText);
-          // item.appendChild(delButton); // Adds a delete button to every task
-
-          // Listen for when the delete button is clicked
-          // delButton.addEventListener("click", function () {
-
-          //     // Loop through all the tasks to find the matching ID and remove it from the array
-          //     localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
-          //         if (bookArrayElement.id == item.getAttribute('data-id')) {
-          //             localBooks.splice(bookArrayIndex, 1)
-          //         }
-          //     })
-
-          //     // Update localStorage with the newly spliced array (converted to a JSON string)
-          //     localStorage.setItem('books', JSON.stringify(localBooks))
-
-          //     item.remove(); // Remove the task item from the page when button clicked
-          //     // Because we used 'let' to define the item, this will always delete the right element
-
-          // })
       })
 
   }

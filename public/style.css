@@ -13,17 +13,19 @@ h1{
 
 h2, th {
     font-family: 'Cairo', sans-serif;
-    color: #FFFFFF;
+    color: #000000;
     font-size: 30pt;
     text-align: center;
     margin: auto;
 }
 
-p{
+p, li {
     font-family: 'Mulish', sans-serif;
     font-size: 16pt;
     color: #FFFFFF;
 }
+
+
 
 th {
     font-family: "Cairo";
@@ -156,11 +158,7 @@ textarea{
     flex-direction: column;
 }
 
-.form-row {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1em;
-}
+
 
 .form-input {
     background-color: #FFFFFF;
@@ -197,19 +195,24 @@ textarea{
     color: #000000;
 }
 
+input[type="radio"] {
+    accent-color: #D6748F;
+    display: inline-block;
+}
+
+
 .form-row > input,
 .form-row > select {
     padding: 0.5em;
     flex-grow: 1;
+    width: 100%;
 }
 
 input[type="date"] {
     font-family: "Mulish";
 }
 
-input[type="radio"] {
-    accent-color: #D6748F;
-}
+
 
 input[type="file"] {
     background: none;
@@ -237,6 +240,7 @@ input[type="file"] {
 .tagify {
     padding: 0.5em;
     flex-grow: 1;
+    width: 100%;
 }
 
 .form-row .tagify__tag{
@@ -263,6 +267,7 @@ input[type="file"] {
 
 textarea.form-input {
   min-height: 100px;
+  width: 100%;
 }
 
 .btn {
@@ -431,17 +436,24 @@ dialog::backdrop{
   }
 
 
-
-
-
+/* Media query for larger devices */
+@media screen and (min-width: 701px){
+    .form-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    }
+}
+    
 
   
   /* Media query for smaller devices */
 @media screen and (max-width: 700px){
 
     h1 {
-        /* font-size: 30pt; */
-        width: 80%;
+        font-size: 40pt;
+        margin: 50px 0;
+
     }
 
     h2 {
@@ -449,10 +461,16 @@ dialog::backdrop{
     } 
     th {
         font-size: 15pt;
+        padding: 0 10px 0 0;
+        color: #000000;
+    }
+    p{
+        font-size: 12pt;
     }
 
     .addToShelf{
         font-size: 20pt;
+        margin: 10px;
 
     }
 
@@ -461,26 +479,44 @@ dialog::backdrop{
     }
 
     .form-container {
-        padding: 40px 30px;
-        margin: 70px auto;
+        padding: 20px 30px 20px 20px;
+        margin: 70px 10px;
+    }
+
+    .table-container {
+        display: inline;
     }
 
     .form-row > label {
         font-size: 15pt;
+        display: inline-block;
     }
 
-    textarea{
-        width: 70%;
-        padding: 12px 10px;
-        margin: 5px;
-        box-sizing: border-box;
-        border: 2px solid #A62848;
-        background-color: #FFFFFF;
-        font-family: "Mulish";
-        font-size: 12pt;
-        resize: none;
+    .form-row > input, 
+    .form-row > select, 
+    .form-row > textarea {
+       width: 100%;
     }
 
+    .displayBook, li {
+        width: 140px;
+    }
+
+    .modalBook { 
+        width: 100%;
+    }
+
+    li {
+        padding: 10px;
+    }
+    ul{
+        padding-left: 10px;
+    }
+
+    .displayBooksGrid {  
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        margin: 0 auto;
+        padding: 0;
+    }
 }
-
-

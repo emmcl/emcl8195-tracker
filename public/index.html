@@ -63,24 +63,24 @@
                         <h2 class="pop-up-heading">GENERAL INFORMATION</h2>
 
                         <div class="form-row">
-                            <label for="bookCover">Cover:</label>
+                            <label for="bookCover">Cover:</label><br>
                             <input type="file" class="form-input" id="bookCover" name="bookCover" accept="image/x-png,image/gif,image/jpeg" required="true"><br>
                         </div>
 
                         <div class="form-row">
-                            <label for="bookTitle">Title:</label>
+                            <label for="bookTitle">Title:</label><br>
                             <input type="text" class="form-input" id="bookTitle" name="bookTitle" placeholder="eg. The Hobbit" required="true"><br>
                         </div>
 
                         <div class="form-row">
-                            <label for="bookAuthor">Author:</label>
+                            <label for="bookAuthor">Author:</label><br>
                             <input type="text" class="form-input" id="bookAuthor" name="bookAuthor" placeholder="eg. JRR Tolkien" required="true"><br>
                         </div>
                         <!-- Although there are a significant number of options that could be provided for this drop down, 
                             I have chosen 10 popular fiction genres most shown on book purchasing websites   -->   
 
                         <div class="form-row">
-                            <label for="bookGenre">Genre:</label> 
+                            <label for="bookGenre">Genre:</label><br>
                             <select id="bookGenre" class="form-input" name="bookGenre" required="true">
                                 <option selected disabled>Select a Genre</option>
                                 <option value="Classics">Classics</option>
@@ -102,7 +102,7 @@
                     <section role="tabpanel" id="specifics" class="tabpanel hidden">
                         <h2 class="pop-up-heading">SPECIFIC INFORMATION</h2>
                         <div class="form-row">
-                            <label for="bookFormat">Format:</label> 
+                            <label for="bookFormat">Format:</label><br>
                             <select id="bookFormat" class="form-input" name="bookFormat" required="true">
                                 <option selected disabled>Select a Format</option>
                                 <option value="Physical">Physical</option>
@@ -112,16 +112,16 @@
                         </div>
 
                         <div class="form-row">
-                            <label for="bookLength">Length:</label> 
+                            <label for="bookLength">Length:</label><br>
                             <input type="number" class="form-input" id="bookLength" name="bookLength"placeholder="eg. 310" min="1" required="true"><br> 
                         </div>
 
                         <div class="form-row">
-                            <label for="bookStartDate">Start:</label>
+                            <label for="bookStartDate">Start:</label><br>
                             <input type="date" class="form-input" id="bookStartDate" name="bookStartDate" required="true" min="2023-01-01" max="2023-12-31"><br>
                         </div>
                         <div class="form-row">
-                            <label for="bookFinishDate">Finish:</label>
+                            <label for="bookFinishDate">Finish:</label><br>
                             <input type="date" class="form-input" id="bookFinishDate" name="bookFinishDate" required="true" min="2023-01-01" max="2023-12-31"><br>
                         </div>
                     </section>
@@ -130,7 +130,7 @@
                         <h2 class="pop-up-heading">REVIEW INFORMATION</h2>
 
                         <div class="form-row">
-                            <label for="bookRating">Rating:</label>
+                            <label for="bookRating">Rating:</label><br>
                                 <input type="radio" class="form-input" id="na" name="bookRating" value="0" checked>
                                 <label for="na">N/A</label>
                                 <input type="radio" class="form-input" id="oneStar" name="bookRating" value="1">
@@ -145,12 +145,12 @@
                                 <label for="fiveStars">5</label><br>         
                         </div>
                         <div class="form-row">
-                            <label for="bookReview">Review:</label>
+                            <label for="bookReview">Review:</label><br>
                             <textarea id="bookReview" class="form-input" name="bookReview" placeholder="Write a review" required="true"></textarea><br>
                         </div>
 
                         <div class="form-row">
-                            <label for="bookTags">Tags</label>
+                            <label for="bookTags">Tags</label><br>
                             <input type="text" class="form-input" id="bookTags" name="bookTags" required="true"><br>
                         </div>
                     </section>          

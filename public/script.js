@@ -187,6 +187,10 @@ function displayBooks() {
               document.getElementById("more-info-modal-days").textContent = book.daysRead;
               document.getElementById("more-info-modal-review").textContent = `"${book.review}"` //display review in quotation marks
               
+
+              //turning tags array into a list for displaying
+              //from https://getbutterfly.com/generate-html-list-from-javascript-array/
+              
               // Make the list
               let tags = book.tags;
               let tagList = document.getElementById("more-info-modal-tags");
@@ -202,9 +206,7 @@ function displayBooks() {
                   // Reset the list item
                   li = document.createElement('li');
               });
-              
-              // document.getElementById("more-info-modal-tags").textContent = book.tags;
-
+            
               // Configure delete button
               delButton.addEventListener("click", function () {
 

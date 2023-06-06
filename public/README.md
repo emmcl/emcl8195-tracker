@@ -1,7 +1,16 @@
 # WINDOW SIZES
-The window sizes that I based and tested  the design on are: 
-* Desktop: 
-* Mobile:
+The window sizes that I based and tested the design on are: 
+* Desktop: 1512 x 982 (Macbook Pro 14")
+* Mobile: 390 x 844 (Chrome Dev Tools - iPhone 12 Pro)
+
+# OUTLINE OF APPLICATION CONFIGURATION & DEPLOYMENT PROCEDURES 
+
+* node.js 
+* parcel
+* 
+* npm install
+* npm run start - taking approx 2 mins at the moment 
+
 
 # DEVELOPMENT PROCESS
 
@@ -14,8 +23,10 @@ The window sizes that I based and tested  the design on are:
 
 * Added finish date input as it is unrealistic to assume that the input date is neccessarily the finish date
 
-# OUTLINE OF APPLICATION CONFIGURATION & DEPLOYMENT PROCEDURES 
+
 
 
 # RECOMMENDATIONS FOR IMPROVEMENTS OR EXTENSIONS
 
+
+# REFERENCES 

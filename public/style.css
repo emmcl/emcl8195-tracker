@@ -115,15 +115,13 @@ tr th td {
     cursor: auto;
 }
 
-
-
 .form-container{
     background-color:#D6748F;
     border: 1px solid #000000;
     padding: 50px;
     width: 80%;
     height: 80%;
-    position: absolute;
+    position: fixed;
     margin: auto;
     left: 0;
     right: 0;
@@ -508,6 +506,7 @@ dialog::backdrop{
 
     li {
         padding: 10px;
+        font-size: 12pt;
     }
     ul{
         padding-left: 10px;

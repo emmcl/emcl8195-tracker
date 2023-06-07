@@ -27,6 +27,7 @@ p, li {
     color: #FFFFFF;
 }
 
+/* table header */
 th {
     font-family: "Cairo", sans-serif;
     font-size: 20pt;
@@ -45,7 +46,7 @@ tr th td {
     display: none;
 }
 
-/* hero image */
+/* hero image and container  */
 .hero-image-container {
     width: 100%;
     position: relative;
@@ -58,7 +59,7 @@ tr th td {
     z-index: -1;
 }
 
-/* add to shelf button */
+/* add to shelf button in hero image*/
 .addToShelf{
     background-color: #A62848;
     color:#FFCFDD;
@@ -74,7 +75,7 @@ tr th td {
     cursor: pointer;
   }
 
-/* list of the books addedc by the user  */
+/* list of the books to be displayed  */
 #bookList {
     list-style-type: none;
     display: flex;
@@ -82,16 +83,9 @@ tr th td {
     margin: 50px auto 100px auto;
     align-items: center;
     flex-wrap: wrap;
-}
 
-.displayBook {
-    width: 250px;
-    padding: 0;
-    margin: 10px;
-    align-items: center;
-    cursor: pointer;
-}
 
+/* formatting for the grid display of the book covers  */
 .displayBooksGrid {  
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -100,11 +94,18 @@ tr th td {
     grid-auto-rows: 1fr;
     gap: 50px 50px;
     grid-auto-flow: row;
+    }
+}
+/* individual book cover in the grid  */
+.displayBook {
+    width: 250px;
+    padding: 0;
+    margin: 10px;
+    align-items: center;
+    cursor: pointer;
+}
 
-  }
-
-/* book info modal  */
-
+/* book info modal - fill with data on click */
 .modalBook {
     width: 25rem;
     display: inline-block;
@@ -113,7 +114,7 @@ tr th td {
     align-items: center;
     cursor: auto;
 }
-
+/* container for the input form  */
 .form-container{
     background-color:#D6748F;
     border: 1px solid #000000;
@@ -147,7 +148,7 @@ tr th td {
     padding: 10px
 }
 
-
+/* container for the table in the info modal  */
 /* https://coder-coder.com/display-divs-side-by-side/ */
 .table-container {
     display: grid;
@@ -159,7 +160,7 @@ tr th td {
     flex-direction: column;
 }
 
-/* styling for form inputs  */
+/* various stylings for different form inputs included */
 .form-input {
     background-color: #FFFFFF;
     font-family: "Mulish";
@@ -211,14 +212,14 @@ input[type="file"] {
     width: 40%;
 }
 
-
+/* open use space-between */
 .spaceBetween{
     justify-content: space-between;
     display: flex;
 }
 
 
-/* close modal and form*/
+/* for "x" button on info and form modals */
 .close {
     align-items: end;
     font-size: 45px;

@@ -1,4 +1,4 @@
-# WINDOW SIZES
+# Window Sizes
 The window sizes that I based and tested the design on are: 
 * Desktop: 1512 x 982 (Macbook Pro 14")
 * Mobile: 390 x 844 (Chrome Dev Tools - iPhone 12 Pro)
@@ -6,7 +6,7 @@ The window sizes that I based and tested the design on are:
 <br>
 
 
-# OUTLINE OF APPLICATION CONFIGURATION & DEPLOYMENT PROCEDURES 
+# Outline of Application Configuration & Deployment Procedures 
 
 ## 1. Clone Repository
 Use the below to clone to repo:
@@ -19,7 +19,7 @@ You can check the version using
 ```
 node --version
 ```
- __Note:__ I am using v 18.6.0
+ *Note: I am using v 18.6.0*
 
 ## 3. Install Dependencies
 ```
@@ -39,9 +39,14 @@ npm run start
 http://localhost:1234 (dev)<br>
 http://localhost:8888 (prod) - taking approximately 2-3 minutes at the moment 
 
+# How To Use
 
+1. Click "Add To Shelf" 
+2. Follow through the three steps of the form with relevant inputs <br> *(Please Note: I have included some book cover images in public/images if you would like to use those rather than look for your own.)*
+4. Once shelved, you can click on any cover to see the inputed information.
+3. From here, if you've made a mitstake or want to remove a book, click on it and press delete. A confirmation box will appear to check you are sure.  
 
-# DEVELOPMENT PROCESS
+# Development Process
 
 The original designs including wireframes, mockups, and feature breakdown can be found [here](https://www.canva.com/design/DAFhYjicQp0/rhkTlwjHAHJAcwOhe61mZw/edit?utm_content=DAFhYjicQp0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
@@ -61,7 +66,7 @@ Some of the main issues I faced throughout the development processes included:
 
 6. Date reading was not accurate - [found new method](https://stackoverflow.com/questions/3224834/get-difference-between-2-dates-in-javascript)
 
-# EXAMPLE IMAGES FROM THIS WEBSITE 
+# Example Images From This Website 
 
 I have included some screencaps to show how the website looks with data input into the form. As this is only design to use local storage for displaying the tracked data, this will start blank. 
 
@@ -93,7 +98,7 @@ __Mobile__
 __Delete Confirmation__
 ![Delete-Confirmation](./RM-images/deleteconfirmation.png)
 
-# DESIGN PATTERNS & PRINCIPLES
+# Design Principles & Patterns
 Below I will outline the __design patterns__ featured on the website, from [ui-patterns.com](ui-patterns.com). 
 
 ## Input Prompt
@@ -114,7 +119,7 @@ Additional features within the form that will be expected for the users include:
 ![Multi-Step-Single-Column-Form](./RM-images/single-column-multi-page.png)
 
 
-# ACCESSIBILITY 
+# Accessibility 
 ## Colour Contrast 
 The main text passes __WebAIM's Contrast Checker__ with a score of 6.75:1 which meets the required AA for this assignment:
 
@@ -127,7 +132,7 @@ __Alt Text__ for images uploaded by the user is created dynamically with the tit
 __Semantic elements__ are used throughout the design.
 
 
-# ITERATIONS & IMPROVEMENTS 
+# Iterations & Improvements
 
 ## General Changes
 I added a finish date input as it is unrealistic to assume that the date the user adds the item to the tracker is neccessarily the date that they finished the book. 
@@ -146,15 +151,20 @@ Based on previous assessment __feedback__, I have changed to a multi step form o
 
 
 
-# RECOMMENDATIONS FOR IMPROVEMENTS OR EXTENSIONS
+# Recommendations for Extensions & Improvements 
 
-Due to time constraints I was not able to make this site overally responsive, I only picked two points of responsivity which were required. I would like to improve this and make it completely responsive.
+Due to time constraints I was not able to make this site overly responsive, I only picked two points of responsivity which were required. I would like to improve this and make it completely responsive.
 
-Additionally, 
+Additionally, I would like to make this into a more expanded version, with the ability to search, filter and produce graphs and statistics based on the users data over a specific period of time, eg. at the end of the year. 
 
-# REFERENCES 
+# Bugs 🪲
+The form is not fully responsive between all sizes, please utilise the given sizes at the top of this file. 
 
-## The following are external code sources utilised within this project: 
+The form has only been tested within Chrome, therefore I am unsure if there are any issues in other browsers. 
+
+# References 
+
+## The following are external code sources utilised within this project.
 
 Ciprian. (2018). Generate HTML list from javascript array. Retrieved from https://getbutterfly.com/generate-html-list-from-javascript-array/
 
@@ -173,7 +183,7 @@ Web Dev Simplified. (2023). Modal will never be the same - HTML dialog element. 
 Yair Even Or. (n.d.). Tagify. Retrieved from https://yaireo.github.io/tagify/
 
 
-## The following were used for guidance with portion of code, not specific code. 
+## The following were used for guidance with portion of code, not specific code.
 
 Envato Tuts. (2016). How to build a responsive form with flexbox. Retrieved from https://webdesign.tutsplus.com/tutorials/building-responsive-forms-with-flexbox--cms-26767
 
@@ -192,7 +202,22 @@ W3 Schools. (n.d.). HTML forms. Retrieved from https://www.w3schools.com/html/ht
 W3 Schools. (n.d.) HTML Input Types. Retrieved from https://www.w3schools.com/html/html_form_input_types.asp
 
 
-## 
+## The following are sources for the images included in the public/images folder.
+
+Devney Perry. (n.d.). [Image] Retrieved from https://devneyperry.com/books/, covers for: 
+* Christmas in Quincy 
+* Indigo Ridge 
+* Juniper Hill 
+* Garnet Flats
+* Jasper Vale 
+* Crimson River 
+* Sable Peak 
+Lucy Score. (n.d.). [Image] Retrieved from https://www.hachette.com.au/lucy-score/, covers for: 
+* Things We Never Got Over 
+* Things We Hide From The Light
+* Things We Left Behind
+
+JRR Tolkien.. (n.d.). [Image] Retrieved from https://www.booktopia.com.au/the-hobbit-j-r-r-tolkien/book/9780261103344.html?source=pla&gclid=CjwKCAjw1YCkBhAOEiwA5aN4AT3AQ0_c4Qzb8yUFQb36Bl0bAynZ1ZKlWQGLswbQ8ApIpeK4WYcotRoCkBcQAvD_BwE
 
 
 

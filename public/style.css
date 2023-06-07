@@ -47,15 +47,13 @@ tr th td {
 
 /* hero image */
 .hero-image-container {
-    max-width: 1512px;
-    height: auto;
+    width: 100%;
     position: relative;
     display: flex; 
     flex-direction: column;
 }
 .hero-image{
     width: 100%;
-    max-height: 655px;
     position: absolute;
     z-index: -1;
 }

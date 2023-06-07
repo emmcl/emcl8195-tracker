@@ -6,14 +6,18 @@ The window sizes that I based and tested the design on are:
 # OUTLINE OF APPLICATION CONFIGURATION & DEPLOYMENT PROCEDURES 
 
 1. Install node.js 
-2. Clone github repository
+2. Clone Repository 
+Using the terminal 
+```git clone ```
 3. npm install
-4. Run: using either `npm run dev` for development environment or `npm run start` 
+4. Start the server using either:
+    * `npm run dev` (for development environment) 
+    * `npm run start` 
+5. Open the application:
+    * http://localhost:1234 (dev)
+    * http://localhost:8888 (start) - taking approximately 2 minutes at the moment 
 
-parcel
-* 
-* npm install
-* npm run start - taking approx 2 mins at the moment 
+
 
 
 # DEVELOPMENT PROCESS

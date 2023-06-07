@@ -123,7 +123,8 @@ closeFormModalButton.addEventListener("click", function(){
 
 
 
-// handling user uploaded images
+// handling user uploaded images - via canvas week 13 module 
+// from https://codepen.io/robdongas/pen/dyggepJ
 
 // Get the image input and destination elements
 const imgInput = document.getElementById("bookCover");

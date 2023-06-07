@@ -212,6 +212,7 @@ Devney Perry. (n.d.). [Image] Retrieved from https://devneyperry.com/books/, cov
 * Jasper Vale 
 * Crimson River 
 * Sable Peak 
+
 Lucy Score. (n.d.). [Image] Retrieved from https://www.hachette.com.au/lucy-score/, covers for: 
 * Things We Never Got Over 
 * Things We Hide From The Light

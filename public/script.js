@@ -190,7 +190,7 @@ function displayBooks() {
 
               //turning tags array into a list for displaying
               //from https://getbutterfly.com/generate-html-list-from-javascript-array/
-              
+
               // Make the list
               let tags = book.tags;
               let tagList = document.getElementById("more-info-modal-tags");
@@ -210,20 +210,24 @@ function displayBooks() {
               // Configure delete button
               delButton.addEventListener("click", function () {
 
-                // Loop through all the tasks to find the matching ID and remove it from the array
-                localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
-                    if (bookArrayElement.id == item.getAttribute('data-id')) {
-                        localBooks.splice(bookArrayIndex, 1)
-                    }
-                })
+                //adding a confirmation before delete so the user does not delete by accident 
+                if (confirm(`Are sure you want to delete ${book.title} by ${book.author}`)== true){
+                
+                  // Loop through all the tasks to find the matching ID and remove it from the array
+                  localBooks.forEach(function (bookArrayElement, bookArrayIndex) {
+                      if (bookArrayElement.id == item.getAttribute('data-id')) {
+                          localBooks.splice(bookArrayIndex, 1)
+                      }
+                  })
 
-                // Update localStorage with the newly spliced array (converted to a JSON string)
-                localStorage.setItem('books', JSON.stringify(localBooks))
+                  // Update localStorage with the newly spliced array (converted to a JSON string)
+                  localStorage.setItem('books', JSON.stringify(localBooks))
 
-                item.remove(); // Remove the task item from the page when button clicked
-                // Because we used 'let' to define the item, this will always delete the right element
+                  item.remove(); // Remove the task item from the page when button clicked
+                  // Because we used 'let' to define the item, this will always delete the right element
 
-                bookInfoModal.close();
+                  bookInfoModal.close();
+                }
               });
 
               bookInfoModal.showModal();

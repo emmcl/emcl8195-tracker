@@ -33,7 +33,7 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
     const tagsArray = tagify.value.map((tag) => tag.value); // Extract the tag values
     formModal.close();
-    // let rating = getStars(document.querySelector('input[name="bookRating"]:checked').value)
+    //getting correct value for the radio button - rating 
     let rating = document.querySelector('input[name="bookRating"]:checked').value
 
     addBook(

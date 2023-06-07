@@ -3,6 +3,9 @@ The window sizes that I based and tested the design on are:
 * Desktop: 1512 x 982 (Macbook Pro 14")
 * Mobile: 390 x 844 (Chrome Dev Tools - iPhone 12 Pro)
 
+<br>
+
+
 # OUTLINE OF APPLICATION CONFIGURATION & DEPLOYMENT PROCEDURES 
 
 ## 1. Clone Repository
@@ -32,19 +35,66 @@ npm run dev
  ```
 npm run start
 ``` 
-5. Open the application:
-    * http://localhost:1234 (dev)
-    * http://localhost:8888 (prod) - taking approximately 2-3 minutes at the moment 
-
-
-
+## 5. Open the application:
+http://localhost:1234 (dev)<br>
+http://localhost:8888 (prod) - taking approximately 2-3 minutes at the moment 
 
 
 
 # DEVELOPMENT PROCESS
 
+The original designs including wireframes, mockups, and feature breakdown can be found [here](https://www.canva.com/design/DAFhYjicQp0/rhkTlwjHAHJAcwOhe61mZw/edit?utm_content=DAFhYjicQp0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+While the development process will be best seen through my commit history, 
+
+Some of the main issues I faced throughout the development processes included: 
+
+1. Positioning/layers of the hero image, text and button - all fixed now, THANKS ROB!
+
+2. Layout of the book covers once they were in the list - fixed by converting to CSS Grids. 
+
+3. Radio Buttons not giving the expected values - [utilised :checked](https://stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value)
+
+4. Tags coming through as a string (ugly) - [changed this to a list](https://getbutterfly.com/generate-html-list-from-javascript-array/)
+
+5. Issues with being able to upload all files types - [changed to accept="image/x-png,image/gif,image/jpeg"](https://www.w3docs.com/snippets/html/how-to-allow-the-file-input-type-to-accept-only-image-files.html)
+
+6. Date reading was not accurate - [found new method](https://stackoverflow.com/questions/3224834/get-difference-between-2-dates-in-javascript)
+
+# EXAMPLE IMAGES FROM THIS WEBSITE 
+
+I have included some screencaps to show how the website looks with data input into the form. As this is only design to use local storage for displaying the tracked data, this will start blank. 
+
+## Main Page 
+__Desktop__
+![Desktop-1](./RM-images/desktop1.png)
+![Desktop-2](./RM-images/desktop2.png)
+
+__Mobile__
+![Mobile](./RM-images/mobile.png)
+
+## Add Book Form 
+__Desktop__
+![Desktop-Form](./RM-images/desktopform.png)
+
+__Mobile__
+![Mobile-Form](./RM-images/mobile-form-all.png) 
+
+## Information Modal 
+__Desktop__
+![Desktop-Modal](./RM-images/desktopinfomodal.png)
+
+__Mobile__
+![Mobile-Modal](./RM-images/info-modal-mobile-all.png)
+
+
+## Other 
+
+__Delete Confirmation__
+![Delete-Confirmation](./RM-images/deleteconfirmation.png)
+
 # DESIGN PATTERNS & PRINCIPLES
-__Design patterns__ (ui-patterns.com) featured on the website include:
+Below I will outline the __design patterns__ featured on the website, from [ui-patterns.com](ui-patterns.com). 
 
 ## Input Prompt
 ![Input-Prompt](./RM-images/input-prompt.png)
@@ -55,30 +105,44 @@ __Design patterns__ (ui-patterns.com) featured on the website include:
 ## Tagging 
 ![Tagging](./RM-images/tagging.png)
 ## Additonal Features 
-Additional features within the form that will be expected for the users include:
-* radio buttons 
+Additional features within the form that will be expected for the users include: <br>
+### __Radio buttons__ <br>
+
 ![Radio-Button](./RM-images/radiobuttons.png)
-* __Multi step form__ in __single column format__
+### __Multi step form__ in __single column format__ <br>
+
 ![Multi-Step-Single-Column-Form](./RM-images/single-column-multi-page.png)
 
 
 # ACCESSIBILITY 
-## Alt Text 
-* The main text passes __WebAIM's Contrast Checker__ passes the required AA for this assignment: 
+## Colour Contrast 
+The main text passes __WebAIM's Contrast Checker__ with a score of 6.75:1 which meets the required AA for this assignment:
+
 ![web-aim-checker](./RM-images/webaim.png)
-* __Alt Text__ from imags - created dynamically with the title and author input by the user
-* Utilised a 
+
+## Alt Text
+__Alt Text__ for images uploaded by the user is created dynamically with the title and author input by the user.
+
+## Other 
+__Semantic elements__ are used throughout the design.
 
 
 # ITERATIONS & IMPROVEMENTS 
 
-* Based on previous assessment feedback, I have changed to a multi step form on desktop as well as mobile. This will be both more visually appealing and more consitent for the user across web and mobile devices.  
+## General Changes
+I added a finish date input as it is unrealistic to assume that the date the user adds the item to the tracker is neccessarily the date that they finished the book. 
 
+## Feedback 
+Based on previous assessment __feedback__, I have changed to a multi step form on desktop in the same way I had planned for in the mobile design. This will be both more visually appealing and more consitent for the user across web and mobile devices. Due to this, the layout of the form has changed slightly to make space for the 1-3 page indicator which is now included.   
 
-* Changed layout of form slightly to adjust for the 1,2,3 page indicator for mutli step form - had to move close button 
+## Removed Due to Scope/Time Restraints
+1. I decided to simply use the built in confrm() function to prompt the user to confirm they want to delete the book, rather than the additional modal pop-up that was in my original designs. This built in function will be familiar to the user without taking away from the overall experience of the site.
 
-* Added finish date input as it is unrealistic to assume that the input date is neccessarily the finish date
+2. I removed the originally planned book opening on hover as it was not working quite how I anticipated. I just changed this to have the cursor change when the books could be clicked on instead. 
 
+3. I hid the opening book animation on the mobile version as I didn't want it to affect the loading on mobile. This also makes sense due to the hero image being smaller on mobile 
+
+4. I originally planned to have a toast notification pop up when the user successfully shelved a book however, I decided this was unneccessary as the user will see the uploaded book cover appear at the top of the list. 
 
 
 
@@ -98,7 +162,7 @@ Dongas, R. (n.d.). Multistepform. Retrieved from https://replit.com/@DECO2017/Mu
 
 Dongas, R. (2023). Upload image to base64. Retrieved from  https://codepen.io/robdongas/pen/dyggepJ
 
-Ndugu, A. (n.d.). How to create a clos ebutton in HTML CSS. Retrieved from https://devpractical.com/close-button-html-css/
+Ndugu, A. (n.d.). How to create a close button in HTML CSS. Retrieved from https://devpractical.com/close-button-html-css/
 
 Stack Overflow. (n.d.). Get difference between 2 dates in javascript. Retrieved from https://stackoverflow.com/questions/3224834/get-difference-between-2-dates-in-javascript
 
@@ -128,7 +192,7 @@ W3 Schools. (n.d.). HTML forms. Retrieved from https://www.w3schools.com/html/ht
 W3 Schools. (n.d.) HTML Input Types. Retrieved from https://www.w3schools.com/html/html_form_input_types.asp
 
 
-
+## 
 
 
 
